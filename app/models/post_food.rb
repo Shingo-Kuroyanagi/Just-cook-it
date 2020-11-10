@@ -1,0 +1,4 @@
+class PostFood < ApplicationRecord
+  
+  
+end
