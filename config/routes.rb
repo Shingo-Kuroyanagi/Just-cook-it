@@ -24,5 +24,5 @@ Rails.application.routes.draw do
         resources :post_food_favorites,only: [:create,:destroy]
     end
     resources :ranks,only: [:index]
-    resources :calendars,only[:index]
+    resources :calendars,only:[:index]
 end
