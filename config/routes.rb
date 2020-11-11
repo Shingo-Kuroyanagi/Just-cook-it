@@ -9,12 +9,12 @@ Rails.application.routes.draw do
     devise_for :users,skip: :all
         devise_scope :user do
         #サインアップ
-        get 'customers/sign_up' =>'customers/registrations#new', as: :new_customer_registration
-        post 'customers'=>'customers/registrations#create', as: :customer_registration
+        get '/sign_up' =>'devise/registrations#new', as: :new_user_registration
+        post 'users'=>'devise/registrations#create', as: :user_registration
         #ログイン、ログアウト
-        get 'customers/sign_in'=>'customers/sessions#new',as: :new_customer_session
-        post 'customers/sign_in'=>'customers/sessions#create',as: :customer_session
-        delete 'customers/sign_out' =>'customers/sessions#destroy', as: :destroy_customer_session
+        get 'sign_in'=>'devise/sessions#new',as: :new_user_session
+        post 'sign_in'=>'devise/sessions#create',as: :user_session
+        delete 'sign_out' =>'devise/sessions#destroy', as: :destroy_user_session
     end
     resources :users,only: [:show,:edite,:update]
     #マイページ表示及び編集
