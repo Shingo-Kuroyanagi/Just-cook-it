@@ -74,3 +74,8 @@ gem 'rails-i18n'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 # カレンダー機能
+gem 'dotenv-rails'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
