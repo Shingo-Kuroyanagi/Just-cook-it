@@ -9,15 +9,19 @@ Rails.application.routes.draw do
     devise_for :users,skip: :all
         devise_scope :user do
         #サインアップ
-        get '/sign_up' =>'devise/registrations#new', as: :new_user_registration
+        get 'sign_up' =>'devise/registrations#new', as: :new_user_registration
         post 'users'=>'devise/registrations#create', as: :user_registration
         #ログイン、ログアウト
         get 'sign_in'=>'devise/sessions#new',as: :new_user_session
         post 'sign_in'=>'devise/sessions#create',as: :user_session
         delete 'sign_out' =>'devise/sessions#destroy', as: :destroy_user_session
     end
-    resources :users,only: [:show,:edite,:update]
-    #マイページ表示及び編集
+    
+    #マイページ表示及び編集,退会ページ
+    resources :users,only: [:show,:edit,:update] do
+        get 'withdrawal_show' => 'users#withdrawal_show'
+        patch 'withdrawal'
+    end  
     
     resources :post_foods do
         resources :post_food_comments,only: [:create,:destroy]

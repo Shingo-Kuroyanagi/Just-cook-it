@@ -1,0 +1,47 @@
+<%= render 'layouts/header'%>
+<div class="container">
+  <div class="row">   
+  <!--プロフィール項目　-->
+    <div class=col-lg-3>
+        <tr>
+         <h4>
+           <strong>プロフィール</strong>
+         <td> 
+            <%= link_to edit_user_path(current_user) do%>
+            <i class = "glyphicon glyphicon-cog"></i>
+            <% end %>
+         </td>
+         </h4>
+        </tr>
+      <%= attachment_image_tag @user,:image,format: 'jpeg',fallback: "no_image.jpg", size: '100x100'%>
+      <table class="table">
+        <tr>
+         <th>名前:</th>
+         <td><%= @user.name%></td>
+        </tr>
+        <tr>
+         <th>年齢:</th>
+         <td><%= @user.age%></td>
+        </tr>
+        <tr>
+         <th>性別:</th>
+         <td><%= @user.sex%></td>
+        </tr>
+        <tr>
+        </tr>
+      </table>
+      <table class="table">
+         <tr>
+           <h4><strong>自己紹介文<strong></h4>
+           <td><%= @user.introduction %></td>
+         </tr>
+      </table>  
+      
+      <div class="">
+        <%= link_to "月間投稿数へ", ranks_path(current_user), class: "btn btn-warning col-xs-４"%>
+      </div>
+      <!--ユーザー投稿ページ　-->
+    </div>
+  </div>
+</div>
+<%= render 'layouts/footer'%>
