@@ -9,7 +9,7 @@
     <nav>
       <ul class="navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><p>ようこそ、<%= current_user.name %>さん！</p></li>
+          
           <li><%= link_to ' マイページ', user_path(current_user) %></li>
           <li><%= link_to ' ランキング', ranks_path %></li>
           <li><%= link_to ' 投稿一覧', post_foods_path %></li>

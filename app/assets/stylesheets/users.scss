@@ -1,3 +1,19 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.glyphicon-cog:before {
+  color: black;
+}
+
+.btn.outline {
+    color: #4cae4c;
+    background: none;
+    border-color: #4cae4c
+}
+
+.btn.outline2 {
+    color: #d9534f;
+    background: none;
+    border-color: #d9534f;
+}

@@ -27,7 +27,7 @@
             <div class="row form-group">
               <label class="col-xs-3 control-label"> 年齢</label>
                 <div class="col-xs-6">
-                  <%= f.select :age, {"10代": "0","20代": "1","30代": "2","40代": "3","50代": "4","60代以上": "5"},{include_blank: "選択してください"}, {class: "form-control"}%>
+                  <%= f.select :age, {"10代": "10代","20代": "20代","30代": "30代","40代": "40代","50代": "50代","60代以上": "60代以上" },{include_blank: "選択してください"}, {class: "form-control"}%>
                 </div>
             </div>
             
@@ -64,7 +64,7 @@
           <h4 class="title">既に登録済みの方</h4>
           <div class="row form-group" >
             <div class="col-xs-12">
-              <%= link_to "こちら" , new_user_session_path %>からログインしてください。
+              <%= link_to "こちら" , new_user_session_path %>からログインしてください。>
             </div>
           </div>
         </div>
