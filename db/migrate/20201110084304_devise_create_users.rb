@@ -11,7 +11,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :age, null: false, default: 0
       t.string :image_id, null: false, default: ""
       t.text :introduction, null: false, default: ""
-      
+      t.boolean :is_deleted, null: false, default: false
+
 
       ## Recoverable
       t.string   :reset_password_token
