@@ -17,7 +17,7 @@ class PostFoodCommentsController < ApplicationController
     @post_food = PostFood.find(params[:id])
     @post_food_comments = PostFoodComments.find(params[:id])
     @post_food_comments.destroy
-    
+    redirect_to post_food(@post_food)
   end
 end
 
