@@ -4,15 +4,15 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit]
   
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end 
   
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "マイページを更新しました"
       redirect_to user_path(@user)
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   
   #退会アクション
   def withdrawal
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @user.update(is_deleted:true)
     # 退会後ログインするユーザーを弾く
     reset_session

@@ -1,0 +1,65 @@
+<%= render 'layouts/header'%>
+<div class="container">
+  <div class ="row">
+    <div class="col-xs-1" style="margin-top:100px;">
+  			<!--投稿登録アイコン-->
+  		  <%= link_to new_post_food_path do %>
+  		  	<i class="fas fa-plus-circle fa-3x col-xs-1 col-xs-offset-1 mb-4 color"></i>
+  		  <% end %>
+    </div>
+    <div class="col-xs-5 col-xs-offset-2">
+      <div class="index-products-area">
+        <thead class= "table">
+            <th>製作時間:</th>
+            <th>投稿日:</th>
+            <th>料理名:</th>
+            <th>ジャンル:</th>
+        </thead>
+        
+        <table class = "table table-hover table-inverse">
+      
+          <% @post_foods.each do |post_food| %>
+            <din><%= attachment_image_tag post_food, :image, fallback: "no_image.jpg",size: '60x60'%></div>
+          <tr>
+            <td><%= post_food.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <td><%= post_food.name %></td>
+          </tr>
+          <!--<tr>
+            <td>
+              <i class="fa fa-heart" aria-hidden="true" style="color: red;">
+                <= post_food.post_food_favorites.count %>いいね
+              </i>
+            </td>
+            <td>
+               <i class="fa fa-comments" aria-hidden="true" style="color: black;">
+                <= post_food.post_food_comments.count %>
+              </i>
+            </td>
+          </tr>-->
+          <tr>
+            <td><%= post_food.genre %></td>
+          </tr>
+          <tr>
+            <td><%= post_food.time %></td>
+          </tr>
+           <tr>
+            <th>評価:</th>
+            <td><%= post_food.rate %></td>
+          </tr>
+        <% end %>  
+       </table>
+       <!--
+        <div class="col-xs-12">
+          		   < link_to new_post_food_path do %>
+          		    <i class="fas fa-arrow-circle-up fa-3x col-xs-1 col-xs-offset-1 mb-4 color"></i>
+          		  < end %>
+        </div>-->
+      </div>
+    </div>
+  </din>
+</div>
+
+
+<%= render 'layouts/footer'%>
