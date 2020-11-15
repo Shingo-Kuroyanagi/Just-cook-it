@@ -11,12 +11,12 @@ class PostFoodsController < ApplicationController
   
   def create 
     @post_food = PostFood.new(post_food_params)
+    @post_food.user_id = current_user.id
     if @post_food.save
       flash[:notice] = "投稿完了しました"
-      redirect_to post_foods_path 
+      redirect_to post_foods_path
     else
-      @post_foods = PostFood.all
-      render 'index'
+      render 'new'
     end  
   end
   
