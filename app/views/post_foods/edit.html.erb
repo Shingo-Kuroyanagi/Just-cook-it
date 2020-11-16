@@ -1,0 +1,64 @@
+<%= render 'layouts/header'%>
+<div class ="container">
+  <div class ="row">
+    <h2 class="title">編集画面</h2>
+    <%= form_with model: @post_food, url: post_food_path, method: :put, local: true do |f| %>
+
+      <div class="col-xs-3">
+      <!--ここから　投稿画像のプレビュー-->
+        <div class="img_field">
+          <%= attachment_image_tag @post_food, :image, fallback: "no_image.jpg", class: "img-responsive img-thumbnail post-image",size: '200x200'%>
+        </div>
+        <div class="field">
+          <%= f.attachment_field :image %>
+        </div>
+    　</div>
+    　
+      <div class="col-xs-9">
+         <div class="row form-group">
+              <label class="col-sm-3 control-label"> 料理名</label>
+               <div class="col-sm-4">
+                 <%= f.text_field :name, autofocus: true, class: "form-control", autocomplete: "name", placeholder: "料理名" %>
+               </div>
+          </div>  
+         <div class="row form-group">
+              <label class="col-sm-3 control-label"> 料理説明</label>
+               <div class="col-sm-4">
+                 <%= f.text_area :explanation, autofocus: true, class: "form-control", autocomplete: "name", placeholder: "料理説明" %>
+               </div>
+          </div>
+          <div class="row form-group">
+              <label class="col-sm-3 control-label"> 参考サイトURL</label>
+               <div class="col-sm-4">
+                 <%= f.text_field :reference_site_url, autofocus: true,class: "form-control ", autocomplete: "name", placeholder: "参考サイトURL" %>
+               </div>
+          </div> 
+           <div class="row form-group">
+              <label class="col-sm-3 control-label"> 製作時間</label>
+               <div class="col-sm-4">
+                <%= f.select :time,{"5分": "5分","15分": "15分","30分": "30分","1時間": "1時間","1時間以上": "1時間以上"},{include_blank: "選択してください"}, {class: "form-control"}%>
+               </div>
+            </div>
+            <div class="row form-group">
+              <label class="col-sm-3 control-label"> ジャンル</label>
+               <div class="col-xs-6">
+                  <label class="col-xs-3"><%= f.radio_button :genre, "朝ご飯",checked: "checked"%>朝ご飯</label>
+                  <label class="col-xs-3"><%= f.radio_button :genre, "昼ご飯" %>昼ご飯</label>
+                  <label class="col-xs-4"><%= f.radio_button :genre, "夜ご飯" %>夜ご飯</label>
+               </div>
+            </div>        
+            <div class="row form-group">
+              <label class="col-sm-3 control-label"> 費用</label>
+               <div class="col-sm-4">
+                 <%= f.select :cost, {"500円以下": "500円以下","500円": "500円","1000円": "1000円","1500円": "1500円","2000円以上": "2000円以上"},{include_blank: "選択してください"}, {class: "form-control"}%>
+               </div>
+            </div>
+            <div class="row form-group">
+               <div class="col-sm-4 col-xs-offset-3">
+                 <%= f.submit "変更を保存",class: "btn btn-warning pull-right" %>
+               </div>
+      <% end %>
+    </div>
+  </div>
+</div> 
+<%= render 'layouts/footer'%>

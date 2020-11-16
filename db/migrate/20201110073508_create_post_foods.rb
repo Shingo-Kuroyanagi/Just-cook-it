@@ -7,9 +7,9 @@ class CreatePostFoods < ActiveRecord::Migration[5.2]
       t.text :explanation, null:false
       t.string :image_id, null:false
       t.text :reference_site_url, null:false
-      t.string :time, null:false
-      t.string :genre, null:false
-      t.string :cost, null:false
+      t.integer :time, null:false, default: 0
+      t.integer :genre, null:false, default: 0
+      t.integer :cost, null:false, default: 0
       
     end
   end
