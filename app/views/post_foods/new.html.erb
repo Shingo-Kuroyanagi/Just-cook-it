@@ -4,17 +4,17 @@
     <h2 class="title">投稿画面</h2>
     <%= form_with model: @post_food, url: post_foods_path, method: :post, local: true do |f| %>
 
-      <div class="col-xs-4">
+      <div class="col-xs-3">
       <!--ここから　投稿画像のプレビュー-->
         <div class="img_field">
-          <%= attachment_image_tag @post_food, :image, fallback: "no_image.jpg", class: "img-responsive img-thumbnail product-image",size: '200x200'%>
+          <%= attachment_image_tag @post_food, :image, fallback: "no_image.jpg", class: "img-responsive img-thumbnail post-image",size: '200x200'%>
         </div>
         <div class="field">
           <%= f.attachment_field :image %>
         </div>
     　</div>
     　
-      <div class="col-xs-8">
+      <div class="col-xs-9">
          <div class="row form-group">
               <label class="col-sm-3 control-label"> 料理名</label>
                <div class="col-sm-4">
@@ -55,7 +55,7 @@
             </div>
             <div class="row form-group">
                <div class="col-sm-4 col-xs-offset-3">
-                 <%= f.submit "新規投稿",class: "btn btn-warning btn-lg pull-right" %>
+                 <%= f.submit "保存する",class: "btn btn-warning btn-lg pull-right" %>
                </div>
             </div>
        </div>

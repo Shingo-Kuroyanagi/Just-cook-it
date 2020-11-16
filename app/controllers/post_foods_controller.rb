@@ -32,7 +32,7 @@ class PostFoodsController < ApplicationController
     @post_food = PostFood.find(params[:id])
     if @post_food.update(post_food_params)
         flash[:notice] = "投稿情報を更新しました"
-        redirect_to post_food_path（@post_food）
+        redirect_to post_food_path
     else
         render 'edit'
     end  
