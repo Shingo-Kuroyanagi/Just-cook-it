@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @post_foods = @user.post_foods
   end 
   
   def edit
