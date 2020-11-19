@@ -17,4 +17,9 @@ class PostFood < ApplicationRecord
   enum genre: {"朝ご飯": 0,"昼ご飯": 1,"夜ご飯": 2}
   enum cost: {"500円以下": 0,"500円": 1,"1000円": 2,"1500円":3,"2000円以上":4}
   enum time: {"5分": 0,"15分": 1,"30分": 2,"1時間":3,"１時間以上":4}
+  
+  def post_food_favorited_by?(user)
+      post_food_favorites.where(user_id: user.id).exists?
+  end
+  
 end

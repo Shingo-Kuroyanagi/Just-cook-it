@@ -17,3 +17,19 @@
     background: none;
     border-color: #d9534f;
 }
+
+.show-posts-area{
+    width: auto;
+    display: flex; /* Flexboxの利用 */
+    flex-wrap: wrap; /* Flexboxの利用時に横幅を超えた要素を折り返す */
+    flex-direction: column;/* Flexboxの利用 縦並び */
+}
+
+.users-posts-area{
+    padding: 10px;
+    width: auto;
+    margin: 20px;
+    background-color:#FFCC66;
+    box-shadow: 2px 2px 2px 2px;
+    border-radius: 10%;
+}

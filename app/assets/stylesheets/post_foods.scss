@@ -8,7 +8,7 @@
   width: auto;
   display: flex; /* Flexboxの利用 */
   flex-wrap: wrap; /* Flexboxの利用時に横幅を超えた要素を折り返す */
-  flex-direction: row;
+  flex-direction: row;/* Flexboxの利用 横並び */
 }
 
 .posts-area{

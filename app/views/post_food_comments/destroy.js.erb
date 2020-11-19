@@ -1,0 +1,2 @@
+$("#post_food_comment").html(" <%= @post_food.post_food_comments.count %>");
+$("#post_food_comment_<%= @post_food.id %>").html("<%= j(render 'post_food_comments/comments', post_food: @post_food) %>");

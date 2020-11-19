@@ -22,6 +22,8 @@ class PostFoodsController < ApplicationController
   
   def show
     @post_food = PostFood.find(params[:id])
+    @user = @post_food.user
+    @post_food_comment = PostFoodComment.new
   end
   
   def edit
@@ -32,7 +34,7 @@ class PostFoodsController < ApplicationController
     @post_food = PostFood.find(params[:id])
     if @post_food.update(post_food_params)
         flash[:notice] = "投稿情報を更新しました"
-        redirect_to post_food_path
+        redirect_to post_food_path(@post_food)
     else
         render 'edit'
     end  

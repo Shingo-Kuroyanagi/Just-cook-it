@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   #TOPページ
   get '/about' => 'homes#about', as: 'about'
   #Abooutページ   
-  
+  get '/search' => 'searchs#search', as: 'search'
+  #検索ページ   
     devise_for :users,skip: :all
         devise_scope :user do
         #サインアップ
@@ -24,8 +25,8 @@ Rails.application.routes.draw do
     end  
     
     resources :post_foods do
+        resource :post_food_favorites,only: [:create,:destroy]
         resources :post_food_comments,only: [:create,:destroy]
-        resources :post_food_favorites,only: [:create,:destroy]
     end
     resources :ranks,only: [:index]
     resources :calendars,only:[:index]
