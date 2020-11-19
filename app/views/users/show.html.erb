@@ -1,6 +1,10 @@
 <%= render 'layouts/header'%>
 <div class="container">
-  <div class="row">   
+  <div class="row">
+  <!--検索結果がない場合のメッセージ-->
+  <% if flash[:alert] %>
+    <p class="alert alert-danger"><%= flash[:alert] %></p>
+  <% end %>   
   <!--プロフィール項目　-->
       <div class=col-xs-2>
           <tr>

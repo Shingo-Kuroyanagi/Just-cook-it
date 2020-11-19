@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
    # 多重度の設定
   has_many :post_foods,dependent: :destroy
-
+  has_many :post_food_comments,dependent: :destroy
+  has_many :post_food_favorites,dependent: :destroy
+  
    # バリデーション設定   
   validates :name, presence:true
   validates :email, presence:true
