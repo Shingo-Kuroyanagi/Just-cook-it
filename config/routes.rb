@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #TOPページ
   get '/about' => 'homes#about', as: 'about'
   #Abooutページ   
-  get '/search' => 'searchs#search', as: 'search'
+  get '/search' => 'searches#search', as: 'search'
   #検索ページ   
     devise_for :users,skip: :all
         devise_scope :user do
