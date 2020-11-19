@@ -25,4 +25,8 @@ class User < ApplicationRecord
    super && (self.is_deleted == false)
   end
   #ログインするときに退会済のユーザーを弾く為のメソッド
+ # ユーザー検索
+  def self.search_for(content, method)
+      User.where("name LIKE ?", "%#{content}%")
+  end
 end

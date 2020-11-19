@@ -22,4 +22,9 @@ class PostFood < ApplicationRecord
       post_food_favorites.where(user_id: user.id).exists?
   end
   
+  # 自炊料理情報検索
+  def partical_post_food(content)
+      PostFood.where("name LIKE ?", "%#{content}%")
+  end
+  
 end
