@@ -3,7 +3,8 @@ class PostFoodsController < ApplicationController
   
   def index
     @post_foods = PostFood.all
-  end  
+    @rate_avg = PostFoodComment.all.average(:rate)
+  end 
   
   def new 
     @post_food = PostFood.new
@@ -24,6 +25,7 @@ class PostFoodsController < ApplicationController
     @post_food = PostFood.find(params[:id])
     @user = @post_food.user
     @post_food_comment = PostFoodComment.new
+    @rate_avg = PostFoodComment.all.average(:rate)
   end
   
   def edit
@@ -38,6 +40,11 @@ class PostFoodsController < ApplicationController
     else
         render 'edit'
     end  
+  end
+  
+  
+  def ranks
+      @all_ranks =  PostFood.find(PostFoodFavrite.group(:post_food_id).order('count(post_food_id) desc').limit(10).pluck(:post_food_id))
   end
   
   private

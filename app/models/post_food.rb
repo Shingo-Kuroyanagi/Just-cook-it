@@ -10,6 +10,8 @@ class PostFood < ApplicationRecord
   validates :time, presence:true
   validates :genre, presence:true
   validates :cost, presence:true
+  #星数レビュー範囲指定(1~5)
+  validates :rate, numericality: {less_than_or_equal_to: 5,greater_than_or_equal_to: 0}, presence: true
   
   # 画像投稿機能
   attachment :image
@@ -22,9 +24,5 @@ class PostFood < ApplicationRecord
       post_food_favorites.where(user_id: user.id).exists?
   end
   
-  # 自炊料理情報検索
-  def partical_post_food(content)
-      PostFood.where("name LIKE ?", "%#{content}%")
-  end
   
 end

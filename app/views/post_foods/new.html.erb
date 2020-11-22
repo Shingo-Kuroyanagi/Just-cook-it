@@ -1,6 +1,8 @@
 <%= render 'layouts/header'%>
 <div class ="container">
   <div class ="row">
+   <!-- エラーメッセージ表示-->
+　<%= render "layouts/errors", obj: @post_food %>
     <h2 class="title">投稿画面</h2>
     <%= form_with model: @post_food, url: post_foods_path, method: :post, local: true do |f| %>
 

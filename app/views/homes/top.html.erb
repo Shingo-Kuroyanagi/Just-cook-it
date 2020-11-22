@@ -2,17 +2,27 @@
 
 <div class =main-visual-top>
   <div class="col-xs-5 col-xs-offset-4">
+    <p>
+      <%= notice%>
+      <%= alert %>
+    </p>
     <div class="main-visual-top-text-box">
       <h3 class="second-title">毎日自炊を頑張る人へ寄り添うサイト</h3> 
       <h1 class="title">Just cook it！へようこそ</h1>
     </div>
   </div>  
 </div>  
-<div class="col-xs-12 col-xs-offset-10">
-  <i class="glyphicon glyphicon-forward">
-   <%= link_to"早速登録してみる",new_user_registration_path%>
-  </i>
-</div>  
-    
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12 col-xs-offset-8">
+    <i class="glyphicon glyphicon-forward">
+     <%= link_to"早速登録してみる",new_user_registration_path%>
+    </i>
+    <i class="glyphicon glyphicon-forward">
+     <%= link_to 'ゲストログイン（閲覧用）',users_guest_sign_in_path, method: :post %>
+    </i>
+  </div>
+  </div>
+</div>
 
 <%= render 'layouts/footer'%>

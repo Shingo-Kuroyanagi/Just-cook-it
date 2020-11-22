@@ -20,11 +20,20 @@ class User < ApplicationRecord
   enum sex: {"男性": 0,"女性": 1,"その他": 2}
   # 画像投稿機能
   attachment :image
-   
+  
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+    user.password = SecureRandom.urlsafe_base64
+    user.name = "guest"
+   end
+  end
+  
+  
+  #ログインするときに退会済のユーザーを弾く為のメソッド 
   def active_for_authentication?
    super && (self.is_deleted == false)
   end
-  #ログインするときに退会済のユーザーを弾く為のメソッド
+  
  # ユーザー検索
   def self.search_for(content, method)
       User.where("name LIKE ?", "%#{content}%")

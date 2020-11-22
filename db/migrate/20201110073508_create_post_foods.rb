@@ -2,7 +2,7 @@ class CreatePostFoods < ActiveRecord::Migration[5.2]
   def change
     create_table :post_foods do |t|
       t.timestamps
-      t.float :rate
+      t.float :rate, null:false, default: 0
       t.string :name, null:false
       t.text :explanation, null:false
       t.string :image_id, null:false

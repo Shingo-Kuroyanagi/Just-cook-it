@@ -21,7 +21,9 @@ class PostFoodCommentsController < ApplicationController
   
    private
   def post_food_comment_params
-    params.require(:post_food_comment).permit(:comment)
+    tmp = params.require(:post_food_comment).permit(:comment,:rate,)
+    tmp[:rate] = params[:score]
+    tmp
   end
   
 end

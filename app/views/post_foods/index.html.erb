@@ -24,8 +24,8 @@
                         <%= attachment_image_tag post_food, :image, fallback: "no_image.jpg",size: '150x150'%>
                   	<% end %>  
                   </div>
-                  <p> 投稿日:<%= post_food.created_at.strftime('%Y/%m/%d') %></p>
-                  <p> 料理名:<%= post_food.name %></p>
+                  <p> 投稿日:&nbsp;&nbsp;<%= post_food.created_at.strftime('%Y/%m/%d') %></p>
+                  <p> 料理名:&nbsp;&nbsp;<%= post_food.name %></p>
                   <p>
                   <span id="post_food_<%= post_food.id %>">
                     <%= render 'post_food_favorites/favorites',post_food: post_food%>
@@ -36,19 +36,33 @@
                     </i>
                   </span>
                   </p>
-                  <p>ジャンル:<%= post_food.genre %><p>
-                  <p> 製作時間:<%= post_food.time %></p>
-                  <p>評価:<%= post_food.rate %></p>
+                  <p>ジャンル:&nbsp;&nbsp;<%= post_food.genre %><p>
+                  <p>製作時間:&nbsp;&nbsp;<%= post_food.time %></p>
+                  <p>評価:&nbsp;&nbsp;<%= @rate_avge %>点</p>
+                  <!--星評価機能の実装-->
+                <div id="post_food_<%= post_food.id %>">  
+                  <div id ="start-rate-<%= post_food.id%>"></div>
+                      <script>
+                            $('#star-rate-<%= post_food.id%>').raty({
+                              size: 36,
+                              starOff: "/assets/star-off.png",
+                              starOn: "/assets/star-on.png",
+                              starHalf: "/asset/star-half.png",
+                              half: true,
+                              readOnly: true,
+                              score: <%= @rate_avg %>,
+                            // 平均点を算出し、round関数等で切り上げたい
+                              });
+                        </script>
+                    </div>
                 </div>
               </div>
             <% end %>
             <!--topbackアイコン-->
-            <div class= "icon">
-              <%= link_to new_post_food_path do %>
-                <i class="fas fa-arrow-circle-up fa-3x col-xs-offset-8 mb-4 color"></i>
-              <% end %>
-            </div>
       </div>
+          <div id="back">
+                <i class="fas fa-arrow-circle-up fa-3x col-xs-offset-8 mb-4 color"></i>
+          </div>
     </div>
   </div>
 </div>

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_11_16_084930) do
 
   create_table "post_food_comments", force: :cascade do |t|
-    t.integer "rate"
+    t.float "rate"
     t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_084930) do
   create_table "post_foods", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "rate"
+    t.float "rate", default: 0.0, null: false
     t.string "name", null: false
     t.text "explanation", null: false
     t.string "image_id", null: false
