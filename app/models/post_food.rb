@@ -20,9 +20,13 @@ class PostFood < ApplicationRecord
   enum cost: {"500円以下": 0,"500円": 1,"1000円": 2,"1500円":3,"2000円以上":4}
   enum time: {"5分": 0,"15分": 1,"30分": 2,"1時間":3,"１時間以上":4}
   
+  
   def post_food_favorited_by?(user)
       post_food_favorites.where(user_id: user.id).exists?
   end
   
-  
+  #index表示するためにrate_avgメソッドを作成
+  def rate_avg
+     post_food_comments.average(:rate).to_f.floor(1)
+  end  
 end

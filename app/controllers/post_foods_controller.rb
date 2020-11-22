@@ -1,11 +1,10 @@
 class PostFoodsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new,:show,:edit]
   
   def index
     @post_foods = PostFood.all
-    @rate_avg = PostFoodComment.all.average(:rate)
-  end 
-  
+    
+  end
   def new 
     @post_food = PostFood.new
   end
@@ -25,7 +24,10 @@ class PostFoodsController < ApplicationController
     @post_food = PostFood.find(params[:id])
     @user = @post_food.user
     @post_food_comment = PostFoodComment.new
-    @rate_avg = PostFoodComment.all.average(:rate)
+     #アソシエーション指定によりpost_food_id：params[:id]を取ってくる
+     #floorメソッドで少数第一位切り捨て指定
+     #@rate_avg = PostFoodComment.where(post_food_id: params[:id]).average(:rate)
+    @rate_avg = @post_food.post_food_comments.average(:rate).to_f.floor(1)
   end
   
   def edit
@@ -44,7 +46,8 @@ class PostFoodsController < ApplicationController
   
   
   def ranks
-      @all_ranks =  PostFood.find(PostFoodFavrite.group(:post_food_id).order('count(post_food_id) desc').limit(10).pluck(:post_food_id))
+      @all_ranks =  PostFood.find(PostFoodFavorite.group(:post_food_id).order('count(post_food_id) desc').limit(10).pluck(:post_food_id))
+      @all_ranks_rate = PostFood.group(:rate).order('count(rate) desc').limit(10).pluck(:rate)
   end
   
   private

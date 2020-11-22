@@ -108,27 +108,3 @@ $(function() {
     event.preventDefault();
   });
 });
-
-
-
-//星評価機能
-//$(function(){
-  //$('#star').raty({
-   // size: 36,
-    //starOff: "/assets/star-off.png",
-    //starOn: "/assets/star-on.png",
-    //: "post_food_comment[rate]"
-  //});
-//});
-
-//口コミ機能実装
-//$('#star-rate-<%= post_food.id%>').raty({
-    //size: 36,
-    //starOff: "/assets/star-off.png",
-   // starOn: "/assets/star-on.png",
-   // starHalf: "/asset/star-half.png",
-    //half: true,
-   //readOnly: true,
-    //score: "<%= post_food.average(:rate).to_f.round(1)%>",
-  // 平均点を算出し、round関数で切り上げ
-  //});

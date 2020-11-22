@@ -43,27 +43,24 @@
                   </div>
                    <!--評価表示-->
                   <div class="row form-group">
-                      <label class="col-sm-3 control-label"> 評価:&nbsp;&nbsp;<%= @rate_avg %>点</label>
+                      <label class="col-sm-3 control-label"> 評価:&nbsp;&nbsp;<span id="post_food_rate"><%= @rate_avg %></span>点</label>
                   </div>
                   <!--評価機能nの-->
                   <div class="row form-group">
                     <div class ="col-sm-3">
-                      <div id="post_food_<%= @post_food.id %>">
                         <div id="star-rate-<%= @post_food.id%>"></div>
-                        
                           <script>
                             $('#star-rate-<%= @post_food.id%>').raty({
                               size: 36,
-                              starOff: "/assets/star-off.png",
-                              starOn: "/assets/star-on.png",
-                              starHalf: "/asset/star-half.png",
+                              starOff:'<%= asset_path('star-off.png') %>',
+                              starOn :'<%= asset_path('star-on.png') %>',
+                              starHalf:'<%= asset_path('star-half.png') %>',
                               half: true,
                               readOnly: true,
                               score: <%= @rate_avg %>,
                             // 平均点を算出し、round関数等で切り上げたい
                               });
                           </script>
-                        </div>
                       </div>
                   </div>
                   <div class="row form-group">
@@ -91,9 +88,9 @@
                         <script>
                           $('#star').raty({
                             size: 36,
-                            starOff: "/assets/star-off.png",
-                            starOn: "/assets/star-on.png",
-                            scoreNmae: "post_food_comment[rate]"
+                            starOff:'<%= asset_path('star-off.png') %>',
+                            starOn :'<%= asset_path('star-on.png') %>',
+                            starHalf:'<%= asset_path('star-half.png') %>',
                           });
                         </script>
                         </div>

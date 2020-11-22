@@ -1,38 +1,46 @@
 <%= render 'layouts/header'%>
 <div class="container">
   <div class= "row">
-    <div class="index-posts-area">
-      <div class= posts-area>
-          
-            <% lateFavorite =0 %>
+  <div class="col-xs-2 ">   
+  <h4>評価点数<br/>ユーザーランキング！</h4>
+      <span>名前:<!--<= post_food.user.name%>--><span>
+      <span>評価点数:<!--<= post_food.rate_avg %>--><span>
+      
+　</div>      
+  <div class="col-xs-12 col-xs-offset-2">
+  <h2>いいね数ユーザーランキング！</h2>
+        <div class="index-posts-area">
+          　<% lateFavorite =0 %>
             <% k = 1 %>
             <% @all_ranks.each.with_index(1) do |post_food, i| %>
-                <%if i == 1 %>
-                  <% lateFavorite = post_food.post_food_favorites.count %>
-                <% end %>
-                <% if lateFavorite != post_food.post_food_favorites.count %>
-                <% k = i%>
-                 第<%= k %>位
-                 <div class=img_field>
-                    <%= link_to post_food_path(post_food) do %>
-                        <%= attachment_image_tag post_food, :image, fallback: "no_image.jpg",size: '150x150'%>
-                  	<% end %>
-                  </div>	
-                	<p>名前:<%= post_food.user.name%></p>
-                  <p>いいね数:<%= post_food.post_food_favorites.count%></p>
-                  <% lateFavorite = post_food.post_food_favorites.count %>
-                <% else %>
-                    <% lateFavorite = post_food.post_food_favorites.count %>
-                   第<%= k %>位
-                   <div class=img_field>
-                   <%= link_to post_food_path(post_food) do %>
-                        <%= attachment_image_tag post_food, :image, fallback: "no_image.jpg",size: '150x150'%>
-                  	<% end %>
-                  </div>
-                	<p>名前:<%= post_food.user.name%><p>
-                  <p>いいね数:<%= post_food.post_food_favorites.count%><p>
-                </div>	
-              	<% end %>
+                        <%if i == 1 %>
+                        <% lateFavorite = post_food.post_food_favorites.count %>
+                        <% end %>
+                        <div class= posts-area>
+                        <% if lateFavorite != post_food.post_food_favorites.count %>
+                            <% k = i%>
+                             第<%= k %>位
+                             <div class=img_field>
+                                <%= link_to post_food_path(post_food) do %>
+                                    <%= attachment_image_tag post_food, :image, fallback: "no_image.jpg",size: '150x150'%>
+                              	<% end %>
+                              </div>	
+                            　<p>名前:<%= post_food.user.name%></p>
+                              <p>いいね数:<%= post_food.post_food_favorites.count%></p>
+                              <% lateFavorite = post_food.post_food_favorites.count %>
+                        </div>
+                        <% else %>
+                                <% lateFavorite = post_food.post_food_favorites.count %>
+                               第<%= k %>位
+                               <div class=img_field>
+                               <%= link_to post_food_path(post_food) do %>
+                                    <%= attachment_image_tag post_food, :image, fallback: "no_image.jpg",size: '150x150'%>
+                              	<% end %>
+                              </div>
+                            　<p>名前:<%= post_food.user.name%><p>
+                              <p>いいね数:<%= post_food.post_food_favorites.count%><p>
+                        </div>
+          	        <% end %>
               	<br/>
           	<% end %>
     	</div>
