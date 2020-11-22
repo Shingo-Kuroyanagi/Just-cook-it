@@ -25,6 +25,7 @@
                 </div>
                 <p> 投稿日:&nbsp;&nbsp;<%= post_food.created_at.strftime('%Y/%m/%d') %></p>
                 <p> 料理名:&nbsp;&nbsp;<%= post_food.name %></p>
+                <p> 投稿者:&nbsp;&nbsp;<%= post_food.user.name %>さん</p>
                 <p>
                 <span id="post_food_<%= post_food.id %>">
                   <%= render 'post_food_favorites/favorites',post_food: post_food%>
