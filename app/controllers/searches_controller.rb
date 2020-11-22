@@ -10,11 +10,10 @@ class SearchesController < ApplicationController
       # @model、@contentを元に検索した結果をそれぞれのインスタンス変数に格納する
       if @model == "User"
         @users = partical_user(@content)
-        @post_foods = partical_post_food(@content)
         if @users.count == 0
           flash.now[:alert] = "該当するユーザーは見つかりませんでした。"
         end
-        render "users/show"
+        render "searches/index"
       else 
         @post_foods = partical_post_food(@content)
         if @post_foods.count == 0

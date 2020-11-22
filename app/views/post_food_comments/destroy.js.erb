@@ -1,2 +1,16 @@
 $("#post_food_comment").html(" <%= @post_food.post_food_comments.count %>");
 $("#post_food_comment_<%= @post_food.id %>").html("<%= j(render 'post_food_comments/comments', post_food: @post_food) %>");
+<!--削除された際のアベレージ評価点数の表示-->
+$("#post_food_rate").html("<%= @post_food.rate_avg %>");
+
+$("#star-rate-<%= @post_food.id%>").html('');
+<!--削除された際の星の数の表示-->
+$("#star-rate-<%= @post_food.id%>").raty({
+  size: 36,
+  starOff:'<%= asset_path('star-off.png') %>',
+  starOn :'<%= asset_path('star-on.png') %>',
+  starHalf:'<%= asset_path('star-half.png') %>',
+  half: true,
+  readOnly: true,
+  score: <%= @rate_avg %>,
+  });

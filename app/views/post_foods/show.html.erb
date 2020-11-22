@@ -19,7 +19,7 @@
                   </div>
                   <div class="row form-group">
                     <div class ="col-sm-3">
-                      <span class="favorite-btn" id="post_food_<%= @post_food.id %>">
+                      <span id="post_food_<%= @post_food.id %>">
                         <%= render 'post_food_favorites/favorites',post_food: @post_food%>
                       </span>  
                       <span>
@@ -41,6 +41,28 @@
                   <div class="row form-group">
                       <label class="col-sm-3 control-label"> 費用:&nbsp;&nbsp;<%= @post_food.cost %></label>
                   </div>
+                   <!--評価表示-->
+                  <div class="row form-group">
+                      <label class="col-sm-3 control-label"> 評価:&nbsp;&nbsp;<span id="post_food_rate"><%= @rate_avg %></span>点</label>
+                  </div>
+                  <!--評価機能nの-->
+                  <div class="row form-group">
+                    <div class ="col-sm-3">
+                        <div id="star-rate-<%= @post_food.id%>"></div>
+                          <script>
+                            $('#star-rate-<%= @post_food.id%>').raty({
+                              size: 36,
+                              starOff:'<%= asset_path('star-off.png') %>',
+                              starOn :'<%= asset_path('star-on.png') %>',
+                              starHalf:'<%= asset_path('star-half.png') %>',
+                              half: true,
+                              readOnly: true,
+                              score: <%= @rate_avg %>,
+                            // 平均点を算出し、round関数等で切り上げたい
+                              });
+                          </script>
+                      </div>
+                  </div>
                   <div class="row form-group">
                       <div class ="col-sm-3">
                         <%= link_to "投稿一覧へ",post_foods_path, class: "btn btn-warning "%>
@@ -56,6 +78,22 @@
                   <div class="row form-group">
                     <div class="col-sm-6">
                       <%= f.text_area :comment, rows: '3', class: "form-control",placeholder: "コメントをここに" %>
+                    </div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col-sm-5">
+                        <div class="field">
+                            <%= f.label :rate,  "評価する" ,id: "star"%>
+                            <%= f.hidden_field :rate, id: :review_star %>
+                        <script>
+                          $('#star').raty({
+                            size: 36,
+                            starOff:'<%= asset_path('star-off.png') %>',
+                            starOn :'<%= asset_path('star-on.png') %>',
+                            starHalf:'<%= asset_path('star-half.png') %>',
+                          });
+                        </script>
+                        </div>
                     </div>
                   </div>
                   <div class="row form-group">

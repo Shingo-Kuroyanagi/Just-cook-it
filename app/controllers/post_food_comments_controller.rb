@@ -11,17 +11,22 @@ class PostFoodCommentsController < ApplicationController
        render 'error' #app/views/book_comments/error.js.erbを参照する
       # app/views/book_comments/create.js.erbを参照する
     end
+    @rate_avg = @post_food.rate_avg
   end
   def destroy
     @post_food = PostFood.find(params[:post_food_id])
     post_food_comment = @post_food.post_food_comments.find(params[:id])
     post_food_comment.destroy
       # app/views/book_comments/destroy.js.erbを参照する
+    @rate_avg = @post_food.rate_avg
   end
   
    private
   def post_food_comment_params
-    params.require(:post_food_comment).permit(:comment)
+    tmp = params.require(:post_food_comment).permit(:comment,:rate,)
+    # スコアデータをrateカラムに入れてやる
+    tmp[:rate] = params[:score]
+    tmp
   end
   
 end

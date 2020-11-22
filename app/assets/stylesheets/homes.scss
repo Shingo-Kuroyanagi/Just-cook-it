@@ -10,6 +10,54 @@
     background-position: center; /* 背景画像の中央表示 */
     background-size: cover; /* 背景画像の画像の縦横比を維持しながら最大化 */
 }
+.main-visual-top:before{
+  
+  content:'';
+  background: inherit;
+  filter: blur(8px);
+  position: absolute;
+  filter: blur(5px);
+  width: 100%;
+  height: 400px;
+}
+
+
 .main-visual-top-text-box{
     margin-top: 100px;
+}
+
+//about画面　画像スライド 
+.image1 {
+  background-image: url(image1.jpg);
+  display: flex; 
+  background-position: center; 
+  background-size: cover; 
+}
+.image2 {
+  background-image: url(image2.jpg);
+  display: flex; 
+  background-position: center; 
+  background-size: cover; 
+}
+.image3 {
+  background-image: url(image3.jpg);
+  display: flex; 
+  background-position: center; 
+  background-size: cover; 
+}
+.image4 {
+  background-image: url(image4.jpg);
+  display: flex; 
+  background-position: center; 
+  background-size: cover; 
+}
+.image5 {
+  background-image: url(image5.jpg);
+  display: flex; 
+  background-position: center; 
+  background-size: cover; 
+}
+
+#container{
+  height: 500px;
 }

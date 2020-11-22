@@ -1,0 +1,27 @@
+<%= render 'layouts/header'%>
+  <% if flash[:alert] %>
+    <p class="alert alert-danger"><%= flash[:alert] %></p>
+  <% end %>
+  <div class="container">
+    <div class ="row">
+	  <h3>ユーザー検索&nbsp;一覧結果</h3>
+    	<div class="col-xs-2 col-xs-offset-5">
+      	<!--users一覧 -->
+      			 <div class="show-posts-area">
+      				<% @users.each do |user| %>
+          			<div class= users-posts-area>
+          					<p>
+                      <%=link_to user_path(current_user) do%>
+          					    <%= attachment_image_tag user,:image ,format:'jpeg',fallback: "no_image.jpg", size: '150x150'%>
+          					  <% end %>
+          					 </p>
+                    <p>名前:&nbsp;<%= user.name %></p>
+                    <p>年齢:&nbsp;<%= user.age %></p>
+          					<p>性別:&nbsp;<%= user.sex %></p>
+                </div>
+      				<% end %>
+      			</div>
+    	  </div>
+    </div>
+  </div>
+  <%= render 'layouts/footer'%>

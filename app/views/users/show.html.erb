@@ -42,13 +42,13 @@
         </table>  
         
         <div class="">
-          <%= link_to "月間投稿数へ", ranks_path(current_user), class: "btn btn-warning col-xs-４"%>
+          <%= link_to "月間投稿数へ", calendars_post_foods_path, class: "btn btn-warning col-xs-４"%>
         </div>
     </div>
     　<!--ユーザー投稿内容-->
-  　<div class="col-xs-2 col-xs-offset-3">
+  　<div class="col-xs-3 col-xs-offset-3">
+  　 <h3>投稿件数:&nbsp;&nbsp;<%=current_user.post_foods.count %>件</h3>
   　 <div>
-  　 <h2>投稿件数:&nbsp;&nbsp;<!--投稿件数--></h2>
   　 </div>
   　    <div class="show-posts-area">
           <% @post_foods.each do |post_food| %>
