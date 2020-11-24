@@ -1,0 +1,46 @@
+// Place all the styles related to the Post_foods controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.color{
+  color:#FFCC66;
+}
+
+#back{
+  right: 10px;
+  margin-bottom: 30px;
+}
+
+.index-posts-area{
+  width: auto;
+  display: flex; /* Flexboxの利用 */
+  flex-wrap: wrap; /* Flexboxの利用時に横幅を超えた要素を折り返す */
+  flex-direction: row;/* Flexboxの利用 横並び */
+}
+
+.posts-area{
+    margin-right: 40px;
+    padding: 10px;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color:#FFCC66;
+    box-shadow: 2px 2px 2px 2px;
+    border-radius: 10%;
+    
+}
+hr{
+  border: solid 1px #33333;
+  margin: 1px;
+}
+
+.posts-area:ntn-child(4n) {
+    margin-right: 0px; /* 4つ目の商品のみ右側余白を0pxに */
+}
+
+#calendar{
+  margin-top: 100px;
+}
+
+.posts-rate-area{
+   
+}

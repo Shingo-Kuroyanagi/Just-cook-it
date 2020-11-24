@@ -1,0 +1,21 @@
+<% post_food.post_food_comments.each do|post_food_comment|%>
+  <%=link_to user_path(post_food_comment.user) do%>
+    <div class ="comment">
+      <div class ="comment-image">
+        <%= attachment_image_tag post_food_comment.user, :image,fallback: "no_image.jpg",size: '60x60' %>
+      </div>  
+      <div class ="comment-name">
+        <%= post_food_comment.user.name %>
+      </div>
+  <% end %>
+      <div class ="comment-text">
+        <%= post_food_comment.comment%>
+      </div>
+  <% if post_food_comment.user == current_user%>
+      <div>
+        <%= link_to "削除", post_food_post_food_comment_path(post_food_comment.post_food,post_food_comment), method: :delete,remote: true, class: "btn btn-danger"%>
+      </div>
+  <% end%>
+    </div>
+<% end %>
+   

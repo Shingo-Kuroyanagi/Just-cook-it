@@ -1,0 +1,39 @@
+<header>
+  <div class="container">
+    <nav class='nav navbar-nav navbar-left' >
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", :size => '100x60' %>
+      <% end %>
+      
+    </nav>
+    <nav>
+      <ul class="navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          
+          <li><%= link_to ' マイページ', user_path(current_user) %></li>
+          <li><%= link_to ' ランキング', ranks_post_foods_path %></li>
+          <li><%= link_to ' 投稿一覧', post_foods_path %></li>
+          <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete %></li>
+          <div class="pull-right row">
+            <%= form_with url: search_path, method: :get, class: "form-inline", local: true do |f| %>
+            <div class="col-sm-4">
+                <%= f.select :model, [["ユーザー検索","User"],["自炊料理検索","Post_food"]], {}, {class: "form-control input-sm"} %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :content, :placeholder => "Search", class: "search-bar col-sm-4 form-control input-sm" %>
+                <%= f.button :type => "submit", style: 'border-style: none;' do %>
+                  <i class='fas fa-search'></i>
+                <% end %>
+            </div>
+          </div>
+          <% end %>
+        <% else %>
+          <li><%= link_to ' About', about_path%></li>
+          <li><%= link_to ' ランキング',ranks_post_foods_path %></li>
+          <li><%= link_to ' 新規登録', new_user_registration_path  %></li>
+          <li><%= link_to ' ログイン', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

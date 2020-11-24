@@ -12,4 +12,42 @@
  *
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+header{
+  background-color:#FFCC66;
+}
+
+footer{
+  background-color:#FFCC66;
+}
+
+.container{
+  margin-top: 20px;
+}
+
+h2.title{
+  margin-bottom: 30px;
+}
+
+.pull-right.row{
+    margin-top: 20px !important;
+  
+}
+.search-bar {
+    width: 70% !important;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+}
+
+button{
+  background-color:#FFCC66;
+}
+
