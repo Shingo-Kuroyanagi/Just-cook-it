@@ -1,0 +1,46 @@
+AllCops:
+  
+  Exclude:
+    - 'Gemfile'
+    - 'node_modules/**/*'
+    - 'bin/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'test/**/*'
+    - 'spec/**/*'
+  # Rails向けのチェックを行う
+  Rails:
+    enabled: true
+
+# "Line is too long"を無効
+Metrics/LineLength:
+  Enabled: false
+
+#'frozen_string_literal: true'を無効
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 日本語のコメントを許可する
+Style/AsciiComments:
+  Enabled: false
+  
+  
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# ドキュメントの無い public class を許可する
+Style/Documentation:
+  Enabled: false
+  
+#AbcSizeチェックの基準値を調整  
+Metrics/AbcSize:
+  Max: 20
+  
+style/NumericPredicate:
+   Enabled: false
+   
+Metrics/MethodLength:
+   Enabled: false
+# MethodLengthチェックの基準値を調整    
+Metrics/MethodLength:
+  Max: 20

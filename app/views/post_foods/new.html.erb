@@ -2,14 +2,17 @@
 <div class ="container">
   <div class ="row">
    <!-- エラーメッセージ表示-->
-　<%= render "layouts/errors", obj: @post_food %>
-    <h2 class="title">投稿画面</h2>
+  <% if @post_food%>
+　    <%= render "layouts/errors", obj: @post_food %>
+　<% end %>
+　
+    <h2 class="title">投稿内容</h2>
     <%= form_with model: @post_food, url: post_foods_path, method: :post, local: true do |f| %>
 
       <div class="col-xs-3">
       <!--ここから　投稿画像のプレビュー-->
         <div class="img_field">
-          <%= attachment_image_tag @post_food, :image, fallback: "no_image.jpg", class: "img-responsive img-thumbnail post-image",size: '200x200'%>
+          <%= attachment_image_tag @post_food,:image,format: "jpg", fallback: "no_image.jpg", class: "img-responsive img-thumbnail post-image",size: '200x200'%>
         </div>
         <div class="field">
           <%= f.attachment_field :image %>
@@ -44,9 +47,9 @@
             <div class="row form-group">
               <label class="col-sm-3 control-label"> ジャンル</label>
                <div class="col-xs-6">
-                  <label class="col-xs-3"><%= f.radio_button :genre, "朝ご飯",checked: "checked"%>朝ご飯</label>
-                  <label class="col-xs-3"><%= f.radio_button :genre, "昼ご飯" %>昼ご飯</label>
-                  <label class="col-xs-4"><%= f.radio_button :genre, "夜ご飯" %>夜ご飯</label>
+                  <label class="col-xs-3"><%= f.radio_button :genre, "朝ご飯",checked: "checked"%>&nbsp;&nbsp;朝ご飯</label>
+                  <label class="col-xs-3"><%= f.radio_button :genre, "昼ご飯" %>&nbsp;&nbsp;昼ご飯</label>
+                  <label class="col-xs-4"><%= f.radio_button :genre, "夜ご飯" %>&nbsp;&nbsp;夜ご飯</label>
                </div>
             </div>        
             <div class="row form-group">

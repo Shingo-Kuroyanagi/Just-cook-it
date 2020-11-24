@@ -1,1 +1,2 @@
-$(".body > .container").prepend("<%= j(render 'layouts/errors', obj: @post_food_comment) %>");
+
+$("#post_food_comment_error_<%= @post_food_comment.id %>").html("<%= j(render 'layouts/errors', obj: @post_food_comment) %>");

@@ -2,8 +2,8 @@
 
 <div class="container">
   <div class= "row">
-      <div class="col-xs-8 col-xs-offset-4" style="margin-top: 50px;">
-        <h2 class="title">こちらからログイン</h2>
+    <h2 class="title">ログイン</h2>
+      <div class="col-xs-8 col-xs-offset-4">
     
          <%= form_with model: @user, url: user_session_path(current_user), local: true do |f| %>
         
@@ -16,7 +16,7 @@
         </div> 
       
         <div class="row form-group">
-           <label class="col-xs-3 control-label"> パスワード<br/>(6文字以上)</label>
+           <label class="col-xs-3 control-label"> パスワード</label>
              <div class="col-xs-4">
                 <%= f.password_field :password, class: "form-control", autocomplete: "new-password", placeholder: "パスワード" %>
              </div>
@@ -24,9 +24,9 @@
       
         <% if devise_mapping.rememberable? %>
           <div class="row form-group">
-            <label class="col-xs-3 control-label"> 情報を保存する</label>
+            <label class="col-xs-3 control-label"></label>
             <div class="col-xs-4">
-             <%= f.check_box :remember_me %>
+              情報を保存する&nbsp;&nbsp;<%= f.check_box :remember_me %>
             </div>
           </div>
         <% end %>

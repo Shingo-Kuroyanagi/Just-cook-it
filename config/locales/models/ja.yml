@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        sex: 性別
+        age: 年齢
+        email: メールアドレス
+        password: パスワード
+        introduction: 自己紹介文
+      post_food:
+        image: 料理画像
+        name: 料理名
+        explanation: 料理説明文
+        time: 製作時間
+        genre: ジャンル
+        cost: 費用
+      post_food_comment: 
+        comment: コメント
+        rate: 評価
