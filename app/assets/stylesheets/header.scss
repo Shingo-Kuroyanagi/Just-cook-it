@@ -1,6 +1,7 @@
-img{
-  border-radius: 50%;
+header{
+  background-color:#FFCC66;
 }
+
 .navbar-nav > li > a {
     color: black;
     margin: 0px 30px 0px 30px;
@@ -8,4 +9,17 @@ img{
 
 ul{ 
     list-style: none;
+}
+
+.image{
+  position: relative;
+  overflow: hidden;
+}
+.image img{
+  position: absolute;
+}
+
+button{
+  background-color:#FFCC66;
+  padding-top: 5px;
 }

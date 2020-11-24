@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .main-visual-top {
-    background-image: image-url("/assets/just-cook-it_top.jpg");
-    width: 100%;
-    height: 400px;
-    display: flex; /* 子要素の上下左右中央寄せするために追記 */
-    background-position: center; /* 背景画像の中央表示 */
-    background-size: cover; /* 背景画像の画像の縦横比を維持しながら最大化 */
+  background-image: image-url("/assets/just-cook-it_top.jpg");
+  width: 100%;
+  height: 400px;
+  display: flex; /* 子要素の上下左右中央寄せするために追記 */
+  background-position: center; /* 背景画像の中央表示 */
+  background-size: cover; /* 背景画像の画像の縦横比を維持しながら最大化 */
 }
 .main-visual-top:before{
   
@@ -60,4 +60,14 @@
 
 #container{
   height: 500px;
+}
+.glyphicon-forward{
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.link{
+  color: black;
+  font-size: 16px;
+  
 }
