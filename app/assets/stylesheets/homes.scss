@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .main-visual-top {
   background-image: image-url("/assets/just-cook-it_top.jpg");
   width: 100%;
@@ -61,6 +62,7 @@
 #container{
   height: 500px;
 }
+
 .glyphicon-forward{
   margin-bottom: 20px;
   margin-left: 10px;
@@ -68,6 +70,5 @@
 
 .link{
   color: black;
-  font-size: 16px;
-  
+  font-size: 16px; 
 }

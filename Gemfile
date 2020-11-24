@@ -75,7 +75,6 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 # カレンダー機能
 gem 'dotenv-rails'
-gem 'dotenv-rails'
 gem 'rinku'
 gem 'rubocop', require: false
 group :production do
