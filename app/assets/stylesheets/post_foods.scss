@@ -1,6 +1,10 @@
 // Place all the styles related to the Post_foods controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.image{
+ border-radius: 10px; 
+}
+
 .color{
   color:#FFCC66;
 }
@@ -18,29 +22,65 @@
 }
 
 .posts-area{
-    margin-right: 40px;
-    padding: 10px;
-    width: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color:#FFCC66;
-    box-shadow: 2px 2px 2px 2px;
-    border-radius: 10%;
+  margin: 10px 50px 30px 0px;
+  padding: 20px;
+  width: auto;
+  background-color:#FFCC66;
+  box-shadow: 2px 2px 2px 2px;
+  border-radius: 10%;
     
 }
-hr{
-  border: solid 1px #33333;
-  margin: 1px;
+
+.show-image-area{
+  float: left;
+  width: 500px;
 }
 
-.posts-area:ntn-child(4n) {
-    margin-right: 0px; /* 4つ目の商品のみ右側余白を0pxに */
+.show-text-area{
+  float: right;
+  width: 600px;
+}
+
+.show-text-1{
+  float: left;
+  width: 300px;
+}
+
+.show-text-2{
+  float: right;
+  width: 300px;
+}
+
+.show-button-area{
+  width: 600px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.index-posts-area.posts-area:ntn-child(4n) {
+    margin-right: 0px; /* 4つ目の料理のみ右側余白を0pxに */
 }
 
 #calendar{
   margin-top: 100px;
 }
 
-.posts-rate-area{
-   
+.rate-box{
+  width: 500px;
+  float: left;
+}
+
+.favorite-box{
+  width: 500px;
+  float: right;
+}
+
+.image img{
+  position:absolute;
+}
+
+#back {
+  position: fixed;
+  right: 80px;
+  bottom: 40px;
 }

@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<
 ActiveRecord::Schema.define(version: 2020_11_16_084930) do
 
   create_table "post_food_comments", force: :cascade do |t|
@@ -41,9 +40,6 @@ ActiveRecord::Schema.define(version: 2020_11_16_084930) do
     t.integer "genre", default: 0, null: false
     t.integer "cost", default: 0, null: false
     t.integer "user_id"
-    t.string "time", null: false
-    t.string "genre", null: false
-    t.string "cost", null: false
   end
 
   create_table "users", force: :cascade do |t|

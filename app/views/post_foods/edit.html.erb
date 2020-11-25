@@ -1,13 +1,14 @@
 <%= render 'layouts/header'%>
 <div class ="container">
   <div class ="row">
-    <h2 class="title">編集画面</h2>
+    <!-- エラーメッセージ表示-->
+　  <%= render "layouts/errors", obj: @post_food %>
+    <h3 class="title">編集画面</h3>
     <%= form_with model: @post_food, url: post_food_path, method: :put, local: true do |f| %>
-
       <div class="col-xs-3">
       <!--ここから　投稿画像のプレビュー-->
         <div class="img_field">
-          <%= attachment_image_tag @post_food, :image, fallback: "no_image.jpg", class: "img-responsive img-thumbnail post-image",size: '200x200'%>
+          <%= attachment_image_tag @post_food, :image,format: "jpeg",fallback: "no_image.jpg",size: '200x200'%>
         </div>
         <div class="field">
           <%= f.attachment_field :image %>
@@ -57,7 +58,9 @@
                <div class="col-sm-4 col-xs-offset-3">
                  <%= f.submit "変更を保存",class: "btn btn-warning pull-right" %>
                </div>
+            </div>   
       <% end %>
+      </div>
     </div>
   </div>
 </div> 

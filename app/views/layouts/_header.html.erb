@@ -2,7 +2,7 @@
   <div class="container">
     <nav class='nav navbar-nav navbar-left' >
       <%= link_to root_path do %>
-        <%= image_tag "logo.png", :size => '100x60' %>
+        <%= image_tag "logo.png", :size => '120x70',class: "logo" %>
       <% end %>
       
     </nav>
@@ -32,6 +32,9 @@
           <li><%= link_to ' ランキング',ranks_post_foods_path %></li>
           <li><%= link_to ' 新規登録', new_user_registration_path  %></li>
           <li><%= link_to ' ログイン', new_user_session_path %></li>
+          <div class="pull-right row">  
+            <%= link_to 'ゲストログイン（閲覧用）',users_guest_sign_in_path, method: :post,class: "link" %>
+          </div>
         <% end %>
       </ul>
     </nav>

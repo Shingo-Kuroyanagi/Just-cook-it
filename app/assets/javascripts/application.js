@@ -24,13 +24,12 @@
 $(document).ready(function () {
   $("#theTarget").skippr({
     transition : 'slide',
-    speed : 1000,
+    speed : 400,
     easing : 'easeOutQuart',
     navType : 'bubble',
     arrows:true,
     autoPlay : true,
-    autoPlaySpeed: 0,
-    autoPlayDuration: 1000,
+    autoPlayDuration: 3000,
     childrenElementType : 'div',
     cssEase:'linear',
     keyboardOnAlways : true,
@@ -101,7 +100,7 @@ $(function () {
 
 //topバック機能追加
 $(function() {
-  $('#back i').on('click',function(event){
+  $('#back a').on('click',function(event){
     $('container, html').animate({
       scrollTop:0
     }, 800);

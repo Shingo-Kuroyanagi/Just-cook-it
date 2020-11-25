@@ -1,8 +1,10 @@
+<h3>コメント一覧</h3>
 <% post_food.post_food_comments.each do|post_food_comment|%>
   <%=link_to user_path(post_food_comment.user) do%>
+  <hr>
     <div class ="comment">
       <div class ="comment-image">
-        <%= attachment_image_tag post_food_comment.user, :image,fallback: "no_image.jpg",size: '60x60' %>
+        <%= attachment_image_tag post_food_comment.user, :image,fallback: "no_image.jpg",size: '60x60',class: "img-circle"%>
       </div>  
       <div class ="comment-name">
         <%= post_food_comment.user.name %>

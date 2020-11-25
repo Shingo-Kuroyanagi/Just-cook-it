@@ -2,7 +2,7 @@
 <div class="container">
  <div class ="row"> 
  <div class="col-xs-5 col-xs-offset-5">
-  <h2>月間投稿数:&nbsp;&nbsp;<%= current_user.post_foods.where('created_at>?',(1.month.ago)).count%>件</h2>
+  <h2 class ="title">月間投稿数:&nbsp;&nbsp;<%= current_user.post_foods.where('created_at>?',Date.current.beginning_of_month).where('created_at<?',Date.current.end_of_month).count%>件</h2>
  </div>
     <div id="calendar"></div>
     <%= link_to"戻る",user_path(current_user),class: "btn btn-warning col-xs-2", style: "margin-top:20px;" %>

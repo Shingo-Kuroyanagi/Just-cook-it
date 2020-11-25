@@ -1,11 +1,20 @@
-img{
-  border-radius: 50%;
+header{
+  background-color:#FFCC66;
 }
+
 .navbar-nav > li > a {
-    color: black;
-    margin: 0px 30px 0px 30px;
+    color: #777777;
+    margin: 10px 30px 0px 30px;
+   
 }
 
 ul{ 
     list-style: none;
+    padding-top: 20px;
+}
+
+
+button{
+  background-color:#FFCC66;
+  padding-top: 5px;
 }

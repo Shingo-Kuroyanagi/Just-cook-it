@@ -1,9 +1,13 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.attachment user image profile-icon  {
+    border-radius: 50%;
+}
+
 
 .glyphicon-cog:before {
-  color: black;
+    color: black;
 }
 
 .btn.outline {
@@ -18,18 +22,26 @@
     border-color: #d9534f;
 }
 
+
+
 .show-posts-area{
-    width: auto;
-    display: flex; /* Flexboxの利用 */
-    flex-wrap: wrap; /* Flexboxの利用時に横幅を超えた要素を折り返す */
-    flex-direction: column;/* Flexboxの利用 縦並び */
+  width: auto;
+  display: flex; /* Flexboxの利用 */
+  flex-wrap: wrap; /* Flexboxの利用時に横幅を超えた要素を折り返す */
+  flex-direction: row;/* Flexboxの利用 横並び */
+  
 }
 
-.users-posts-area{
-    padding: 10px;
-    width: auto;
-    margin: 20px;
-    background-color:#FFCC66;
-    box-shadow: 2px 2px 2px 2px;
-    border-radius: 10%;
+.posts-area{
+  margin: 10px 50px 30px 0px;
+  padding: 20px;
+  width: auto;
+  background-color:#FFCC66;
+  box-shadow: 2px 2px 2px 2px;
+  border-radius: 10%;
+    
+}
+
+.show-posts-area.posts-area:ntn-child(4n) {
+    margin-right: 0px; /* 4つ目の料理のみ右側余白を0pxに */
 }

@@ -2,72 +2,71 @@
 <div class="container">
   <div class= "row">
     <!--検索結果がない場合のメッセージ-->
-  <% if flash[:alert] %>
-    <p class="alert alert-danger"><%= flash[:alert] %></p>
-  <% end %>
+    <% if flash[:alert] %>
+      <p class="alert alert-danger"><%= flash[:alert] %></p>
+    <% end %>
+    <div class="icon">
+        <!--投稿登録アイコン-->
+        <%= link_to new_post_food_path do %>
+        	<i class="fas fa-plus-circle fa-3x col-xs-1 mb-4 color"></i>
+        <% end %>
+    </div>
+    
      <!--投稿登録内容-->
+    <h3 class ="title">投稿一覧</h3>
     <div class="col-xs-12 col-xs-offset-2">
       <div class="index-posts-area">
-          <div class="icon">
-            <!--投稿登録アイコン-->
-            <%= link_to new_post_food_path do %>
-            	<i class="fas fa-plus-circle fa-3x col-xs-1 mb-4 color"></i>
-            <% end %>
-          </div>
+            
             <% @post_foods.each do |post_food| %>
             <div id= "post_food<%=post_food.id %>">
               <div class= posts-area>
-                
                 <div class=img_field>
                   <%= link_to post_food_path(post_food) do %>
                       <%= attachment_image_tag post_food, :image, fallback: "no_image.jpg",size: '150x150'%>
                 	<% end %>  
                 </div>
-                <p> 投稿日:&nbsp;&nbsp;<%= post_food.created_at.strftime('%Y/%m/%d') %></p>
-                <p> 料理名:&nbsp;&nbsp;<%= post_food.name %></p>
-                <p> 投稿者:&nbsp;&nbsp;<%= post_food.user.name %>さん</p>
-                <p>
-                <span id="post_food_<%= post_food.id %>">
-                  <%= render 'post_food_favorites/favorites',post_food: post_food%>
-                </span>  
-                <span>
-                  <i class="fa fa-comments" aria-hidden="true" style="color: black;">
-                    <%= post_food.post_food_comments.count %>
-                  </i>
-                </span>
-                </p>
-                <p>ジャンル:&nbsp;&nbsp;<%= post_food.genre %><p>
-                <p>製作時間:&nbsp;&nbsp;<%= post_food.time %></p>
-                <p>評価:&nbsp;&nbsp;<%= post_food.rate_avg %>点</p>
-                <!--星評価機能の実装-->
-                <div id="post_food_<%= post_food.id %>">  
-                  <div id="star-rate-<%= post_food.id%>"></div>
-                      <script>
-                      if ($('#star-rate-<%= post_food.id%>').children().length === 0) {
-                        $('#star-rate-<%= post_food.id%>').raty({
-                              size: 15,
-                              starOff:'<%= asset_path('star-off.png') %>',
-                              starOn :'<%= asset_path('star-on.png') %>',
-                              starHalf:'<%= asset_path('star-half.png') %>',
-                              half: true,
-                              readOnly: true,
-                              score: <%= post_food.rate_avg %>,
-                              });
-                      }
-                        </script>
-                    </div>
+                <div class="posts-text-area">  
+                  <p> <strong>投稿日:</strong>&nbsp;&nbsp;<%= post_food.created_at.strftime('%Y/%m/%d') %></p>
+                  <p> <strong>料理名:</strong>&nbsp;&nbsp;<%= post_food.name %></p>
+                  <p> <strong>投稿者:</strong>&nbsp;&nbsp;<%= post_food.user.name %>さん</p>
+                  <p>
+                  <span id="post_food_<%= post_food.id %>">
+                    <%= render 'post_food_favorites/favorites',post_food: post_food%>
+                  </span>  
+                  <span>
+                    <i class="fa fa-comments" aria-hidden="true" style="color: black;">
+                      <%= post_food.post_food_comments.count %>
+                    </i>
+                  </span>
+                  </p>
+                  <p><strong>評価:</strong>&nbsp;&nbsp;<%= post_food.rate_avg %>点</p>
+                  <!--星評価機能の実装-->
+                    <div id="star-rate-<%= post_food.id%>"></div>
+                        <script>
+                        if ($('#star-rate-<%= post_food.id%>').children().length === 0) {
+                          $('#star-rate-<%= post_food.id%>').raty({
+                                size: 15,
+                                starOff:'<%= asset_path('star-off.png') %>',
+                                starOn :'<%= asset_path('star-on.png') %>',
+                                starHalf:'<%= asset_path('star-half.png') %>',
+                                half: true,
+                                readOnly: true,
+                                score: <%= post_food.rate_avg %>,
+                                });
+                        }
+                          </script>
+                      </div>
                 </div>
               </div>
           <% end %>
           <!--topbackアイコン-->
     </div>
     <div id="back">
+      <a href="">
           <i class="fas fa-arrow-circle-up fa-3x col-xs-offset-8 mb-4 color"></i>
+      </a>    
     </div>
   </div>
 </div>
 </div>
-
-
-
 <%= render 'layouts/footer'%>

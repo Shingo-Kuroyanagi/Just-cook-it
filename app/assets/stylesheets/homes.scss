@@ -4,27 +4,31 @@
 
 
 .main-visual-top {
-    background-image: image-url("/assets/just-cook-it_top.jpg");
-    width: 100%;
-    height: 400px;
-    display: flex; /* 子要素の上下左右中央寄せするために追記 */
-    background-position: center; /* 背景画像の中央表示 */
-    background-size: cover; /* 背景画像の画像の縦横比を維持しながら最大化 */
+  background-image: image-url("/assets/just-cook-it_top.jpg");
+  width: 100%;
+  height: 600px;
+  display: flex; /* 子要素の上下左右中央寄せするために追記 */
+  background-position: center; /* 背景画像の中央表示 */
+  background-size: cover; /* 背景画像の画像の縦横比を維持しながら最大化 */
 }
 .main-visual-top:before{
-  
   content:'';
   background: inherit;
-  filter: blur(8px);
+  filter: blur(6px);
   position: absolute;
-  filter: blur(5px);
   width: 100%;
-  height: 400px;
+  height: 600px;
 }
 
 
 .main-visual-top-text-box{
-    margin-top: 100px;
+    margin-top: 150px;
+    background-color: rgba(300,300,300,0.6);
+    
+}
+
+.new-link{
+  margin-top: 20px;
 }
 
 //about画面　画像スライド 
@@ -33,33 +37,109 @@
   display: flex; 
   background-position: center; 
   background-size: cover; 
+  height: 600px;
 }
+.image1:before{
+  content:'';
+  background: inherit;
+  filter: blur(8px);
+  position: absolute;
+  filter: blur(3px);
+  width: 100%;
+  height: 600px;
+}
+
 .image2 {
   background-image: url(image2.jpg);
   display: flex; 
   background-position: center; 
   background-size: cover; 
+  height: 600px;
+}
+
+.image2:before{
+   content:'';
+  background: inherit;
+  filter: blur(8px);
+  position: absolute;
+  filter: blur(3px);
+  width: 100%;
+  height: 600px;
 }
 .image3 {
   background-image: url(image3.jpg);
   display: flex; 
   background-position: center; 
   background-size: cover; 
+  height: 600px;
+}
+.image3:before{
+   content:'';
+  background: inherit;
+  filter: blur(8px);
+  position: absolute;
+  filter: blur(3px);
+  width: 100%;
+  height: 600px;
 }
 .image4 {
   background-image: url(image4.jpg);
   display: flex; 
   background-position: center; 
   background-size: cover; 
+  height: 600px;
+}
+
+.image4:before{
+  content:'';
+  background: inherit;
+  filter: blur(8px);
+  position: absolute;
+  filter: blur(3px);
+  width: 100%;
+  height: 600px;
 }
 .image5 {
   background-image: url(image5.jpg);
   display: flex; 
   background-position: center; 
   background-size: cover; 
+  height: 600px;
+}
+.image5:before{
+  content:'';
+  background: inherit;
+  filter: blur(8px);
+  position: absolute;
+  filter: blur(3px);
+  width: 100%;
+  height: 600px;
 }
 
 #container{
-  height: 500px;
+  height: 600px;
 }
+
+.text-area{
+  margin-top: 200px;
+}
+
+h1.top-title{
+  color: white;
+  text-align: center;
+}
+
+.second-title{
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 25px;
+}
+
+.link{
+  color: black;
+  font-size: 14px;
+}
+
+
 

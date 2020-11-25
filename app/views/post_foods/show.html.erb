@@ -1,107 +1,123 @@
 <%= render 'layouts/header'%>
 <div class="container">
     <div class="row">
+      <div id="post_food_comment_error_<%= @post_food_comment.id %>">
+        <%= render 'layouts/errors' ,obj: @post_food_comment %>
+      </div> 
+          <div class="show-image-area">
+              <div class="img_field">
+                  <%= attachment_image_tag @post_food, :image, format: "jpg",fallback: "no_image.jpg",size: '400x400'%>
+              </div> 
+          </div>
       <!--ここから　投稿内容-->
-        <div class="col-xs-9 col-xs-offset-5">
-              <!--ここから　投稿画像-->
-                  <div class="img_field">
-                      <%= attachment_image_tag @post_food, :image, fallback: "no_image.jpg", class: "img-responsive img-thumbnail product-image",size: '250x250'%>
-                  </div> 
-                 <!--ここから　投稿詳細内容-->
-                  <div class="row form-group">
-                      <label class="col-sm-3 control-label"> 投稿日:&nbsp;&nbsp;<%= @post_food.created_at.strftime('%Y/%m/%d') %></label>
-                  </div>
-                  <div class="row form-group">
-                      <label class="col-sm-3 control-label"> 料理名:&nbsp;&nbsp;<%= @post_food.name%></label>
-                  </div>
-                  <div class="row form-group">
-                      <label class="col-sm-3 control-label"> 料理説明:&nbsp;&nbsp;<%= @post_food.explanation%></label>
-                  </div>
-                  <div class="row form-group">
-                    <div class ="col-sm-3">
-                      <span id="post_food_<%= @post_food.id %>">
-                        <%= render 'post_food_favorites/favorites',post_food: @post_food%>
-                      </span>  
-                      <span>
-                         <i class="fa fa-comments" aria-hidden="true" style="color: black;" id = "post_food_comment">
-                          <%= @post_food.post_food_comments.count %>
-                        </i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                      <label class="col-sm-5 control-label">ジャンル:&nbsp;&nbsp;<%= @post_food.genre%></label>
-                  </div>
-                  <div class="row form-group">
-                      <label class="col-sm-5 control-label">参考URL:&nbsp;&nbsp;<%= @post_food.reference_site_url.truncate(10)%></label>
-                  </div>
-                  <div class="row form-group">
-                      <label class="col-sm-3 control-label"> 製作時間:&nbsp;&nbsp;<%= @post_food.time %></label>
-                  </div>
-                  <div class="row form-group">
-                      <label class="col-sm-3 control-label"> 費用:&nbsp;&nbsp;<%= @post_food.cost %></label>
-                  </div>
-                   <!--評価表示-->
-                  <div class="row form-group">
-                      <label class="col-sm-3 control-label"> 評価:&nbsp;&nbsp;<span id="post_food_rate"><%= @rate_avg %></span>点</label>
-                  </div>
-                  <!--評価機能nの-->
-                  <div class="row form-group">
-                    <div class ="col-sm-3">
-                        <div id="star-rate-<%= @post_food.id%>"></div>
-                          <script>
-                            $('#star-rate-<%= @post_food.id%>').raty({
-                              size: 36,
-                              starOff:'<%= asset_path('star-off.png') %>',
-                              starOn :'<%= asset_path('star-on.png') %>',
-                              starHalf:'<%= asset_path('star-half.png') %>',
-                              half: true,
-                              readOnly: true,
-                              score: <%= @rate_avg %>,
-                            // 平均点を算出し、round関数等で切り上げたい
-                              });
-                          </script>
-                      </div>
-                  </div>
-                  <div class="row form-group">
-                      <div class ="col-sm-3">
-                        <%= link_to "投稿一覧へ",post_foods_path, class: "btn btn-warning "%>
-                      </div>  
-                        <%= link_to "編集する",edit_post_food_path(@post_food), class: "btn btn-warning"%>
-                  </div>      
-             <!--ここから　コメント内容-->
-                  <div class="row form-group" id = "post_food_comment_<%=@post_food.id %>">
-                    <%= render 'post_food_comments/comments',post_food: @post_food%>
-                  </div>
-                  <%= form_with model:[@post_food,@post_food_comment] do |f| %>      
-                 <!--ここから　コメント投稿-->
-                  <div class="row form-group">
-                    <div class="col-sm-6">
-                      <%= f.text_area :comment, rows: '3', class: "form-control",placeholder: "コメントをここに" %>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col-sm-5">
-                        <div class="field">
-                            <%= f.label :rate,  "評価する" ,id: "star"%>
-                            <%= f.hidden_field :rate, id: :review_star %>
-                        <script>
-                          $('#star').raty({
-                            size: 36,
-                            starOff:'<%= asset_path('star-off.png') %>',
-                            starOn :'<%= asset_path('star-on.png') %>',
-                            starHalf:'<%= asset_path('star-half.png') %>',
+　     <h2 class="title"><%= @user.name %>さんの投稿</h2>
+        <div class="show-text-area">
+          <!--ここから　投稿画像-->
+             <!--ここから　投稿詳細内容-->
+           <div class="show-text-1">   
+              <div class="row form-group">
+                  <label class="col-sm-6 control-label"> 投稿日:&nbsp;&nbsp;<%= @post_food.created_at.strftime('%Y/%m/%d') %></label>
+              </div>
+              <div class="row form-group">
+                  <label class="col-sm-7 control-label"> 料理名:&nbsp;&nbsp;<%= @post_food.name %></label>
+              </div>
+              <div class="row form-group">
+                  <label class="col-sm-8 control-label"> 料理説明:&nbsp;&nbsp;<%= @post_food.explanation %></label>
+              </div>
+              <div class="row form-group">
+                <div class ="col-sm-6">
+                  <span id="post_food_<%= @post_food.id %>">
+                    <%= render 'post_food_favorites/favorites',post_food: @post_food %>
+                  </span>  
+                  <span>
+                     <i class="fa fa-comments" aria-hidden="true" style="color: black;" id = "post_food_comment">
+                      <%= @post_food.post_food_comments.count %>
+                    </i>
+                  </span>
+                </div>
+              </div>
+          </div>
+            
+            <div class ="show-text-2">
+              <div class="row form-group">
+                  <label class="col-sm-6 control-label">ジャンル:&nbsp;&nbsp;<%= @post_food.genre%></label>
+              </div>
+              <div class="row form-group">
+                  <label class="col-sm-6 control-label">参考URL:&nbsp;&nbsp;<%= Rinku.auto_link(@post_food.reference_site_url.truncate(20), :all, 'target="_blank"').html_safe %>
+              </div>
+              <div class="row form-group">
+                  <label class="col-sm-6 control-label"> 製作時間:&nbsp;&nbsp;<%= @post_food.time %></label>
+              </div>
+              <div class="row form-group">
+                  <label class="col-sm-6 control-label"> 費用:&nbsp;&nbsp;<%= @post_food.cost %></label>
+              </div>
+               <!--評価表示-->
+              <div class="row form-group">
+                  <label class="col-sm-7 control-label"> 評価:&nbsp;&nbsp;<span id="post_food_rate"><%= @rate_avg %></span>点</label>
+              </div>
+              <!--評価機能nの-->
+              <div class="row form-group">
+                <div class ="col-sm-7">
+                    <div id="star-rate-<%= @post_food.id%>"></div>
+                      <script>
+                        $('#star-rate-<%= @post_food.id%>').raty({
+                          size: 36,
+                          starOff:'<%= asset_path('star-off.png') %>',
+                          starOn :'<%= asset_path('star-on.png') %>',
+                          starHalf:'<%= asset_path('star-half.png') %>',
+                          half: true,
+                          readOnly: true,
+                          score: <%= @rate_avg %>,
+                        // 平均点を算出し、round関数等で切り上げたい
                           });
-                        </script>
-                        </div>
-                    </div>
+                      </script>
                   </div>
-                  <div class="row form-group">
-                    <div class="col-sm-5">
-                      <%= f.submit "送信する", class: "btn btn-warning" %>
+              </div>
+          </div>
+            <div class="show-button-area">
+              <div class="row form-group">
+                <div class ="col-sm-2">
+                    <%= link_to "投稿一覧へ",post_foods_path, class: "btn btn-warning "%>
+                </div>
+                 
+                    <%= link_to "編集する",edit_post_food_path(@post_food), class: "btn btn-warning"%>
+                    
+              </div>
+            </div>  
+         
+              <%= form_with model:[@post_food,@post_food_comment] do |f| %>      
+             <!--ここから　コメント投稿-->
+              <div class="row form-group">
+                <div class="col-sm-10">
+                  <%= f.text_area :comment, rows: '4', class: "form-control",placeholder: "コメントをここに" %>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-sm-6">
+                    <div class="field">
+                        <%= f.label :rate,  "評価する" ,id: "star"%>
+                        <%= f.hidden_field :rate, id: :review_star %>
+                    <script>
+                      $('#star').raty({
+                        size: 36,
+                        starOff:'<%= asset_path('star-off.png') %>',
+                        starOn :'<%= asset_path('star-on.png') %>',
+                        starHalf:'<%= asset_path('star-half.png') %>',
+                      });
+                    </script>
                     </div>
-                  </div>
-                  <% end %>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-sm-5">
+                  <%= f.submit "送信する", class: "btn btn-warning" %>
+                </div>
+              </div>
+              <!--ここから　コメント内容-->
+              <div class="row form-group" id = "post_food_comment_<%=@post_food.id %>">
+                <%= render 'post_food_comments/comments',post_food: @post_food%>
+              </div>
+            <% end %>
           </div>
     </div>
 </div>  

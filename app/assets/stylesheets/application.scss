@@ -20,12 +20,19 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-header{
-  background-color:#FFCC66;
+body{
+  font-family: Helvetica Family
 }
+
 
 footer{
   background-color:#FFCC66;
+  color: #777777;
+}
+
+footer.navbar{
+ margin-bottom: 0;
+ 
 }
 
 .container{
@@ -47,7 +54,18 @@ h2.title{
     font-weight: normal;
 }
 
-button{
-  background-color:#FFCC66;
+
+.title {
+   margin-bottom: 10px;
+   text-align: center;
+}
+.posts-text-area{
+  margin-top: 10px;
+}
+
+
+.img_field{
+ margin-top: 20px;
+ margin-bottom: 20px;
 }
 

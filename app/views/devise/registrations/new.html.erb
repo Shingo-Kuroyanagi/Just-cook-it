@@ -1,7 +1,6 @@
 <%= render 'layouts/header'%>
    <div class="container">
      <div class="row">   
-          
     <%= form_with model: @user, url: user_registration_path(current_user), local: true do |f| %>
 
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -10,14 +9,14 @@
           <h2 class="title">新規登録</h2>
           
           <div class="row form-group">
-              <label class="col-xs-3 control-label"> 名前</label>
+              <label class="col-xs-4 control-label"> ニックネーム</label>
                <div class="col-xs-6">
                  <%= f.text_field :name, autofocus: true, class: "form-control", autocomplete: "name", placeholder: "名前" %>
                </div>
           </div>  
           
             <div class="row form-group">
-              <label class="col-xs-3 control-label">メールアドレス</label>
+              <label class="col-xs-4 control-label">メールアドレス</label>
                <div class="col-xs-6">
                  <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "メールアドレス" %>
                </div>
@@ -25,7 +24,7 @@
             
             <!--選択バーの要素の表記-->
             <div class="row form-group">
-              <label class="col-xs-3 control-label"> 年齢</label>
+              <label class="col-xs-4 control-label"> 年齢</label>
                 <div class="col-xs-6">
                   <%= f.select :age, {"10代": "10代","20代": "20代","30代": "30代","40代": "40代","50代": "50代","60代以上": "60代以上" },{include_blank: "選択してください"}, {class: "form-control"}%>
                 </div>
@@ -33,7 +32,7 @@
             
             <!--ラジオボタンの選択-->
              <div class="row form-group">
-              <label class="col-xs-3 control-label"> 性別</label>
+              <label class="col-xs-4 control-label"> 性別</label>
                 <div class="col-xs-8">
                   <label class="col-xs-3"><%= f.radio_button :sex, "男性",checked: "checked"%>男性</label>
                   <label class="col-xs-3"><%= f.radio_button :sex, "女性" %>女性</label>
@@ -42,14 +41,14 @@
             </div>
           
             <div class="row form-group">
-             <label class="col-xs-3 control-label"> パスワード<br/>(6文字以上)</label>
+             <label class="col-xs-4 control-label"> パスワード</label>
                <div class="col-xs-6">
                   <%= f.password_field :password, class: "form-control", autocomplete: "new-password", placeholder: "パスワード" %>
                </div>
             </div>
           
             <div class="row form-group">
-              <label class="col-xs-3 control-label"> パスワード<br/>確認</label>
+              <label class="col-xs-4 control-label"> パスワード確認</label>
                 <div class="col-xs-6">
                   <%= f.password_field :password_confirmation,class: "form-control", autocomplete: "new-password", placeholder: "パスワード確認" %>
                 </div>
@@ -61,12 +60,6 @@
               </div>
             </div>
           <% end %>
-          <h4 class="title">既に登録済みの方</h4>
-          <div class="row form-group" >
-            <div class="col-xs-12">
-              <%= link_to "こちら" , new_user_session_path %>からログインしてください。>
-            </div>
-          </div>
         </div>
       </div>
     </div>

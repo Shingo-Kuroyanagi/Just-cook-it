@@ -1,23 +1,27 @@
 <%= render 'layouts/header'%>
 <div class="container">
   <div class="row">
-  <!--検索結果がない場合のメッセージ-->
-  <% if flash[:alert] %>
-    <p class="alert alert-danger"><%= flash[:alert] %></p>
-  <% end %>   
-  <!--プロフィール項目　-->
-      <div class=col-xs-2>
+      <!--検索結果がない場合のメッセージ-->
+      <% if flash[:alert] %>
+        <p class="alert alert-danger"><%= flash[:alert] %></p>
+      <% end %>   
+      <!--プロフィール項目　-->
+      <div class=col-lg-2>
           <tr>
            <h4>
              <strong>プロフィール</strong>
            <td> 
+           <% if @user == current_user%>
               <%= link_to edit_user_path(current_user) do%>
-              <i class = "glyphicon glyphicon-cog"></i>
+                <i class = "glyphicon glyphicon-cog"></i>
               <% end %>
+          <% end %>    
            </td>
            </h4>
           </tr>
-        <%= attachment_image_tag @user,:image,format: 'jpeg',fallback: "no_image.jpg", size: '100x100'%>
+          <div class="img_field">
+            <%= attachment_image_tag @user,:image,format: 'jpg',fallback: "no_image.jpg", size: '100x100',class: "img-circle "%>
+          </div>
         <table class="table">
           <tr>
            <th>名前:</th>
@@ -31,8 +35,6 @@
            <th>性別:</th>
            <td><%= @user.sex%></td>
           </tr>
-          <tr>
-          </tr>
         </table>
         <table class="table">
            <tr>
@@ -40,29 +42,27 @@
              <td><%= @user.introduction %></td>
            </tr>
         </table>  
-        
-        <div class="">
+        <div style= "margin-bottom:20px;">
           <%= link_to "月間投稿数へ", calendars_post_foods_path, class: "btn btn-warning col-xs-４"%>
         </div>
     </div>
     　<!--ユーザー投稿内容-->
   　<div class="col-xs-3 col-xs-offset-3">
-  　 <h3>投稿件数:&nbsp;&nbsp;<%=current_user.post_foods.count %>件</h3>
-  　 <div>
-  　 </div>
+  　 <h4 class="title"><%=@user.name%>さんの投稿件数:&nbsp;&nbsp;<%=current_user.post_foods.count %>件</h4>
   　    <div class="show-posts-area">
           <% @post_foods.each do |post_food| %>
-              <div class= users-posts-area>
-                    <div class=img_field>
-                      <%= link_to post_food_path(post_food) do %>
-                          <%= attachment_image_tag post_food, :image, fallback: "no_image.jpg",size: '200x200'%>
-                    	<% end %>  
-                    </div>
-                    <p> 投稿日:<%= post_food.created_at.strftime('%Y/%m/%d') %></p>
-                    <p> 料理名:<%= post_food.name %></p>
+              <div class= "posts-area">
+                  <div class=img_field>
+                    <%= link_to post_food_path(post_food) do %>
+                        <%= attachment_image_tag post_food, :image, fallback: "no_image.jpg",size: '150x150'%>
+                  	<% end %>  
+                  </div>
+                  <div class="posts-text-area">  
+                    <p> 投稿日:&nbsp;&nbsp;<%= post_food.created_at.strftime('%Y/%m/%d') %></p>
+                    <p> 料理名:&nbsp;&nbsp;<%= post_food.name %></p>
                     <p>
                     <span class="favorites-btn">
-                      <%= render 'post_food_favorites/favorites',post_food: post_food%>
+                      <%= render 'post_food_favorites/favorites',format: 'jpeg',post_food: post_food%>
                     </span>  
                     <span>
                       <i class="fa fa-comments" aria-hidden="true" style="color: black;">
@@ -70,12 +70,13 @@
                       </i>
                     </span>
                     </p>
-                    <p>ジャンル:<%= post_food.genre %><p>
-                    <p>製作時間:<%= post_food.time %></p>
-                    <p>評価:<%= post_food.rate %></p>
+                    <p>ジャンル:&nbsp;&nbsp;<%= post_food.genre %></p>
+                    <p>製作時間:&nbsp;&nbsp;<%= post_food.time %></p>
+                    <p>評価:&nbsp;&nbsp;<%= post_food.rate %></p>
+                  </div>  
                 </div>
-              <% end %>
-           </div>
+             </div>
+          <% end %>
         </div>
   </div>
 </div>
