@@ -20,14 +20,19 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+body{
+  font-family: Helvetica Family
+}
 
 
 footer{
   background-color:#FFCC66;
+  color: #777777;
 }
 
 footer.navbar{
  margin-bottom: 0;
+ 
 }
 
 .container{

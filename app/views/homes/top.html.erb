@@ -1,29 +1,51 @@
 
 <%= render 'layouts/header'%>
-
-<div class =main-visual-top>
-  <div class="col-xs-5 col-xs-offset-4">
-    <p>
-      <%= notice%>
-    </p>
-    <div class="main-visual-top-text-box">
-      <h3 class="second-title">毎日自炊を頑張る人へ寄り添うサイト</h3> 
-      <h1 >Just cook it！へようこそ</h1>
+<div id="container">
+  <div id="theTarget">
+    <div class="image1">
+       <div class="col-xs-6 col-xs-offset-3">
+        <div class ="text-area"> 
+          <h1 class ="top-title" >Just cook it！へようこそ</h1>
+          <div class="second-title">毎日自炊を頑張る人へ寄り添うサイト</div> 
+        </div>
+      </div>  
     </div>
-  </div>  
-</div>  
-<div class="container">
-  <div class="row">
-  <div class="col-xs-12 col-xs-offset-8">
-    <i class="glyphicon glyphicon-forward">
-     <%= link_to"早速登録してみる",new_user_registration_path,class: "link"%>
-    </i>
-    <i class="glyphicon glyphicon-forward">
-     <%= link_to 'ゲストログイン（閲覧用）',users_guest_sign_in_path, method: :post,class: "link" %>
-    </i>
-  </div>
+    <div class="image2">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="text-area">
+          <h1 class="top-title">忙しい中毎日自炊お疲れ様です！</h1> 
+          <div class="second-title">いきなりですが今日の献立を考える時間大変ですよね？</div> 
+        </div>
+      </div>  
+    </div>
+    <div class="image3">
+      <div class="col-xs-7 col-xs-offset-3">
+        <div class="text-area">
+          <h1 class ="top-title" >そういう時は<strong>Just-cook-it!</strong></h1>
+          <div class="second-title">どんなものでもいいので取り敢えず料理して投稿してみてください。</div>
+        </div>  
+      </div>  
+    </div>
+    <div class="image4">
+      <div class="col-xs-7 col-xs-offset-3">
+        <div class="text-area">
+          <h1 class ="top-title" >自分の料理の情報をまとめれることが可能です</h1>
+          <div class="second-title">日々に自炊に裂く時間を少しでも短縮してください！</div>
+        </div>
+      </div>  
+    </div>
+    <div class="image5">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class ="text-area">
+         <h1 class="top-title">では登録してみましょう！</h1>
+         <div class="second-title">
+           <%= link_to"早速登録してみる",new_user_registration_path,class: "btn btn-primary btn-lg col-xs-4 col-xs-offset-4" %>
+         </div>
+        </div> 
+      </div>
+    </div>  
+    </div>
   </div>
 </div>
-
 <%= render 'layouts/footer'%>
 

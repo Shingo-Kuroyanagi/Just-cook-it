@@ -47,7 +47,8 @@ class PostFoodsController < ApplicationController
     # いいね数ランキング設定
     @all_ranks = PostFood.find(PostFoodFavorite.group(:post_food_id).order('count(post_food_id) desc').limit(10).pluck(:post_food_id))
     # 評価数ランキング
-    @all_rank_rates = PostFood.find(PostFoodComment.group(:post_food_id).order('(post_food_id) desc').limit(10).pluck(:post_food_id))
+    @all_rank_rates = PostFood.find(PostFoodComment.group(:post_food_id).order('avg(rate) desc').limit(10).pluck(:post_food_id))
+    # byebug
   end
 
   private

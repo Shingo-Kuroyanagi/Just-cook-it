@@ -8,7 +8,7 @@ class PostFoodCommentsController < ApplicationController
     @post_food_comment.post_food_id = @post_food.id
     @user = @post_food.user
     unless @post_food_comment.save
-      
+
       render 'error' # app/views/book_comments/error.js.erbを参照する
       # app/views/book_comments/create.js.erbを参照する
     end

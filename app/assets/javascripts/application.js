@@ -24,13 +24,12 @@
 $(document).ready(function () {
   $("#theTarget").skippr({
     transition : 'slide',
-    speed : 2000,
+    speed : 400,
     easing : 'easeOutQuart',
     navType : 'bubble',
     arrows:true,
     autoPlay : true,
-    autoPlaySpeed: 0,
-    autoPlayDuration: 1000,
+    autoPlayDuration: 3000,
     childrenElementType : 'div',
     cssEase:'linear',
     keyboardOnAlways : true,
