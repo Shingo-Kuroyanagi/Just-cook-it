@@ -3,7 +3,7 @@
   <div class= "row">
     <div class="rate-box">   
       <h3 class ="title">評価点数ユーザーランキング！</h3>
-        　<% rateCount =0 %>
+        　<% rateCount = 0 %>
           <% s = 1 %>
           <table class="table table-hover">
             <thead class="thead bg-warning">
@@ -22,6 +22,7 @@
               <td><%= post_food.user.name%>さん</td>
               <td><%= post_food.name%></td>
               <td><%= post_food.rate_avg %>点</td>
+            <% rateCount = post_food.rate_avg %>
             </tbody> 
             <% else %>
             <% rateCount = post_food.rate_avg %>
@@ -51,7 +52,7 @@
                 <%if i == 1 %>
                   <% lateFavorite = post_food.post_food_favorites.count %>
                 <% end %>
-            <% if lateFavorite != post_food.post_food_favorites.count %>
+                <% if lateFavorite != post_food.post_food_favorites.count %>
                   <% k = i%>
                   <tbody>
                      <td>第<%= k %>位</td>

@@ -9,14 +9,14 @@
         
         
         <div class="row form-group">
-          <label class="col-xs-3 control-label">メールアドレス</label>
+          <label class="col-xs-2 control-label">メールアドレス</label>
             <div class="col-xs-4">
              <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "メールアドレス" %>
            </div>
         </div> 
       
         <div class="row form-group">
-           <label class="col-xs-3 control-label"> パスワード</label>
+           <label class="col-xs-2 control-label"> パスワード</label>
              <div class="col-xs-4">
                 <%= f.password_field :password, class: "form-control", autocomplete: "new-password", placeholder: "パスワード" %>
              </div>
@@ -24,7 +24,7 @@
       
         <% if devise_mapping.rememberable? %>
           <div class="row form-group">
-            <label class="col-xs-3 control-label"></label>
+            <label class="col-xs-2 control-label"></label>
             <div class="col-xs-4">
               情報を保存する&nbsp;&nbsp;<%= f.check_box :remember_me %>
             </div>
@@ -32,7 +32,7 @@
         <% end %>
       
        <div class="row form-group">
-          <div class="col-xs-4 col-xs-offset-3">
+          <div class="col-xs-4 col-xs-offset-2">
             <%= f.submit "ログイン", class: "btn btn-warning btn-block" %>
           </div>
       </div>
