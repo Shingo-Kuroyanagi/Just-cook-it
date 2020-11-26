@@ -49,13 +49,13 @@ ActiveRecord::Schema.define(version: 2020_11_16_084930) do
     t.integer "sex", default: 0, null: false
     t.integer "age", default: 0, null: false
     t.string "image_id", default: "", null: false
-    t.text "introduction", default: "", null: false
-    t.boolean "is_deleted", default: false, null: false
+    t.text "introduction", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
