@@ -5,6 +5,8 @@
     <% if flash[:alert] %>
       <p class="alert alert-danger"><%= flash[:alert] %></p>
     <% end %>
+    
+    <% flash[:notice]%>
     <div class="icon">
         <!--投稿登録アイコン-->
         <%= link_to new_post_food_path do %>
