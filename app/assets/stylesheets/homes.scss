@@ -33,7 +33,7 @@
 
 //about画面　画像スライド 
 .image1 {
-  background-image: url(image1.jpg);
+  background-image: image-url(image1.jpg);
   display: flex; 
   background-position: center; 
   background-size: cover; 
@@ -50,7 +50,7 @@
 }
 
 .image2 {
-  background-image: url(image2.jpg);
+  background-image: image-url(image2.jpg);
   display: flex; 
   background-position: center; 
   background-size: cover; 
@@ -67,7 +67,7 @@
   height: 600px;
 }
 .image3 {
-  background-image: url(image3.jpg);
+  background-image: image-url(image3.jpg);
   display: flex; 
   background-position: center; 
   background-size: cover; 
@@ -83,7 +83,7 @@
   height: 600px;
 }
 .image4 {
-  background-image: url(image4.jpg);
+  background-image: image-url(image4.jpg);
   display: flex; 
   background-position: center; 
   background-size: cover; 
@@ -100,7 +100,7 @@
   height: 600px;
 }
 .image5 {
-  background-image: url(image5.jpg);
+  background-image: image-url(image5.jpg);
   display: flex; 
   background-position: center; 
   background-size: cover; 
