@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_084930) do
     t.integer "sex", default: 0, null: false
     t.integer "age", default: 0, null: false
     t.string "image_id", default: "", null: false
-    t.text "introduction", null: false
+    t.text "introduction"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
