@@ -29,7 +29,7 @@ class User < ApplicationRecord
     end
   end
 
-  #ログインするときに退会済のユーザーを弾く為のメソッド
+  # ログインするときに退会済のユーザーを弾く為のメソッド
   def active_for_authentication?
     super && (is_deleted == false)
   end

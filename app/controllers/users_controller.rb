@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   # 退会アクション
   def withdrawal
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     @user.update(is_deleted: true)
     # 退会後ログインするユーザーを弾く
     reset_session

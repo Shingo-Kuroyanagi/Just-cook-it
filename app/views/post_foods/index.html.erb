@@ -6,7 +6,10 @@
       <p class="alert alert-danger"><%= flash[:alert] %></p>
     <% end %>
     
-    <% flash[:notice]%>
+    <% if flash[:notice] %>
+      <p class="alert alert-success"><%= flash[:notice] %></p>
+    <% end %>
+    
     <div class="icon">
         <!--投稿登録アイコン-->
         <%= link_to new_post_food_path do %>
@@ -15,8 +18,11 @@
     </div>
     
      <!--投稿登録内容-->
-    <h3 class ="title">投稿一覧</h3>
-    <div class="col-xs-12 col-xs-offset-2">
+    <h2 class ="title">投稿一覧</h2>
+    <div class ="col-xs-10 col-xs-offset-1">
+      <hr>
+    </div>
+    <div class="col-xs-12 col-xs-offset-1">
       <div class="index-posts-area">
             
             <% @post_foods.each do |post_food| %>
@@ -29,7 +35,7 @@
                 </div>
                 <div class="posts-text-area">  
                   <p> <strong>投稿日:</strong>&nbsp;&nbsp;<%= post_food.created_at.strftime('%Y/%m/%d') %></p>
-                  <p> <strong>料理名:</strong>&nbsp;&nbsp;<%= post_food.name %></p>
+                  <p> <strong>料理名:</strong>&nbsp;&nbsp;<%= post_food.name.truncate(7) %></p>
                   <p> <strong>投稿者:</strong>&nbsp;&nbsp;<%= post_food.user.name %>さん</p>
                   <p>
                   <span id="post_food_<%= post_food.id %>">

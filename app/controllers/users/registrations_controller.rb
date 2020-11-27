@@ -59,7 +59,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  before_action :check_guest, only: %i[update destroy]
+  before_action :check_guest, only: %i[update destroy withdrawal ]
   def check_guest
     redirect_to root_path, alert: 'ゲストユーザーの変更・削除はできません。' if resource.email == 'guest@example.com'
   end
