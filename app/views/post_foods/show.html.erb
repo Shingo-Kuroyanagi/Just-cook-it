@@ -43,7 +43,7 @@
                   <label class="col-sm-6 control-label">ジャンル:&nbsp;&nbsp;<%= @post_food.genre%></label>
               </div>
               <div class="row form-group">
-                  <label class="col-sm-6 control-label">参考URL:&nbsp;&nbsp;<%= Rinku.auto_link(@post_food.reference_site_url.truncate(20), :all, 'target="_blank"').html_safe %>
+                  <label class="col-sm-6 control-label">参考URL:&nbsp;&nbsp;<%= Rinku.auto_link(@post_food.reference_site_url.truncate(35), :all, 'target="_blank"').html_safe %>
               </div>
               <div class="row form-group">
                   <label class="col-sm-6 control-label"> 製作時間:&nbsp;&nbsp;<%= @post_food.time %></label>

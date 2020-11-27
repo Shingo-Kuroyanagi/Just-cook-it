@@ -10,7 +10,7 @@
     <%= form_with model: @post_food, url: post_foods_path, method: :post, local: true do |f| %>
 
       <div class="col-xs-3">
-      <!--ここから　投稿画像のプレビュー-->
+      <!--ここから　投稿画像-->
         <div class="img_field">
           <%= attachment_image_tag @post_food,:image,format: "jpg", fallback: "no_image.jpg",id: "preview",size: '200x200'%>
         </div>
