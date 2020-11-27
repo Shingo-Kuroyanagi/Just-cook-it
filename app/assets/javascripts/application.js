@@ -103,7 +103,7 @@ $(function() {
   $('#back a').on('click',function(event){
     $('container, html').animate({
       scrollTop:0
-    }, 800);
+    }, 700);
     event.preventDefault();
   });
 });

@@ -18,13 +18,16 @@
 }
 
 .posts-area{
-  margin: 10px 50px 30px 0px;
+  
   padding: 20px;
   width: auto;
   background-color:#FFCC66;
   box-shadow: 2px 2px 2px 2px;
   border-radius: 10%;
     
+}
+.index-posts-area.posts-area:ntn-child(5n) {
+    margin-right: 0px; /* 4つ目の料理のみ右側余白を0pxに */
 }
 
 .show-image-area{
@@ -34,17 +37,17 @@
 
 .show-text-area{
   float: right;
-  width: 600px;
+  width: 650px;
 }
 
 .show-text-1{
   float: left;
-  width: 300px;
+  width: 325px;
 }
 
 .show-text-2{
   float: right;
-  width: 300px;
+  width: 325px;
 }
 
 .show-button-area{
@@ -53,9 +56,6 @@
   margin-top: 50px;
 }
 
-.index-posts-area.posts-area:ntn-child(4n) {
-    margin-right: 0px; /* 4つ目の料理のみ右側余白を0pxに */
-}
 
 
 .rate-box{
@@ -75,10 +75,22 @@
 #back {
   position: fixed;
   right: 80px;
-  bottom: 40px;
+  bottom: 80px;
 }
 
 #calendar{
   margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 10px;
   
+}
+// フルカレンダー休日色変更
+.fc-sun{
+  color: red;
+  background-color: #FADBDA;
+}
+
+.fc-sat{
+  color: blue;
+  background-color: #DDEEFF;
 }
