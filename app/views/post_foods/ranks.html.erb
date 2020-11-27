@@ -1,8 +1,9 @@
 <%= render 'layouts/header'%>
-<div class="container">
+<div class="container"style="margin-bottom:250px;">
   <div class= "row">
     <div class="rate-box">   
       <h3 class ="title">評価点数ユーザーランキング！</h3>
+      <hr>
         　<% rateCount = 0 %>
           <% s = 1 %>
           <table class="table table-hover">
@@ -38,6 +39,7 @@
   　</div>
   　<div class="favorite-box">
       <h3 class="title">いいね数ユーザーランキング！</h3>
+      <hr>
       <% lateFavorite =0 %>
       <% k = 1 %>
         <table class="table table-hover">

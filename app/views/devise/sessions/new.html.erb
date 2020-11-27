@@ -3,19 +3,21 @@
 <div class="container">
   <div class= "row">
     <h2 class="title">ログイン</h2>
+      <div class="col-xs-4 col-xs-offset-4">
+        <hr>
+      </div>
       <div class="col-xs-8 col-xs-offset-4">
-    
          <%= form_with model: @user, url: user_session_path(current_user), local: true do |f| %>
         
         
-        <div class="row form-group">
+        <div class="row form-group"style="margin-top:40px">
           <label class="col-xs-2 control-label">メールアドレス</label>
             <div class="col-xs-4">
              <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "メールアドレス" %>
            </div>
         </div> 
       
-        <div class="row form-group">
+        <div class="row form-group"style="margin-top:20px">
            <label class="col-xs-2 control-label"> パスワード</label>
              <div class="col-xs-4">
                 <%= f.password_field :password, class: "form-control", autocomplete: "new-password", placeholder: "パスワード" %>
@@ -23,7 +25,7 @@
         </div>
       
         <% if devise_mapping.rememberable? %>
-          <div class="row form-group">
+          <div class="row form-group"style="margin-bottom: 20px">
             <label class="col-xs-2 control-label"></label>
             <div class="col-xs-4">
               情報を保存する&nbsp;&nbsp;<%= f.check_box :remember_me %>
@@ -31,8 +33,8 @@
           </div>
         <% end %>
       
-       <div class="row form-group">
-          <div class="col-xs-4 col-xs-offset-2">
+       <div class="row form-group"style="margin-bottom:250px;">
+          <div class="col-xs-4 col-xs-offset-1">
             <%= f.submit "ログイン", class: "btn btn-warning btn-block" %>
           </div>
       </div>

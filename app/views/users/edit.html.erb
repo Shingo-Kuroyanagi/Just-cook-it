@@ -3,26 +3,29 @@
      <div class="row">   
         <!-- エラーメッセージ表示-->
     　  <%= render "layouts/errors", obj: @user %>
-    　  
+    　 <p><% flash[:notice]%><p>
        <%= form_with model: @user, local: true do |f| %>
        <div class="col-xs-5 col-xs-offset-4">
             <h2 class="title">登録情報の編集</h2>
+            <hr>
             <div class ="row form-group">
-            <div class="col-xs-5 col-xs-offset-3">
-                <%= attachment_image_tag @user,:image,format: 'jpeg',fallback: "no_image.jpg", size: '100x100'%>
-                <%=f.attachment_field :image, placeholder: "ファイルを選択" %>
-            </div>
+              <div class="col-xs-4 col-xs-offset-4">
+                <%= attachment_image_tag @user,:image,format: 'jpeg',fallback: "no_image.jpg", size: '100x100',class: "img-circle"%>
+              </div>
+              <div class="col-xs-4 col-xs-offset-4">
+                <%=f.attachment_field :image, placeholder: "ファイルを選択" ,class: "btn"%>
+              </div>
             </div>
             
             <div class="row form-group">
-                <label class="col-xs-3 control-label"> 名前</label>
+                <label class="col-xs-4 control-label"> ニックネーム</label>
                  <div class="col-xs-8">
                    <%= f.text_field :name, autofocus: true, class: "form-control", autocomplete: "name", placeholder: "名前" %>
                  </div>
             </div>  
               <!--選択バーの要素の表記-->
               <div class="row form-group">
-                <label class="col-xs-3 control-label"> 年齢</label>
+                <label class="col-xs-4 control-label"> 年齢</label>
                   <div class="col-xs-8">
                     <%= f.select :age, {"10代": "10代","20代": "20代","30代": "30代","40代": "40代","50代": "50代","60代以上": "60代以上" },{include_blank: "選択してください"}, {class: "form-control"}%>
                   </div>
@@ -30,7 +33,7 @@
               
               <!--ラジオボタンの選択-->
                <div class="row form-group">
-                <label class="col-xs-3 control-label"> 性別</label>
+                <label class="col-xs-4 control-label"> 性別</label>
                   <div class="col-xs-8">
                     <label class="col-xs-3"><%= f.radio_button :sex, "男性",checked: "checked"%>男性</label>
                     <label class="col-xs-3"><%= f.radio_button :sex, "女性" %>女性</label>
@@ -38,13 +41,13 @@
                   </div>
               </div>
               <div class="row form-group">
-                <label class="col-xs-3 control-label">メールアドレス</label>
+                <label class="col-xs-4 control-label">メールアドレス</label>
                  <div class="col-xs-8">
                    <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", placeholder: "メールアドレス" %>
                  </div>
               </div>
                <div class="row form-group">
-                <label class="col-xs-3 control-label"> 自己紹介</label>
+                <label class="col-xs-4 control-label"> 自己紹介</label>
                  <div class="col-xs-8">
                     <%= f.text_area :introduction, autofocus: true, class: "form-control", autocomplete: "introduction" %>
                  </div>
@@ -56,6 +59,7 @@
               </div>
               <% end %>
           </div>
+         
           <div class="col-xs-15" style="margin-top: 500px;">
              <div class="withdrawal_show-text" >
               <%= link_to "退会ページ >>" , user_withdrawal_show_path(current_user) %>

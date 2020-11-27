@@ -5,15 +5,17 @@
         <div class="col-xs-12" style="margin-top: 80px;">
       <p class="text-center" style="font-size: 30px"><starong>本当に退会しますか？</storong></p>
     </div>
-
-    <div class=col-xs-12 style="margin-top: 20px;">
+     <div class="col-xs-4 col-xs-offset-4">
+      <hr>
+     </div>
+    <div class="col-xs-12" style="margin-top: 20px;">
     <p class="text-center" style="font-size: 18px">退会すると、ユーザー情報やこれまでの投稿履歴</br>
     それらに紐づくコメント、いいね、評価が全て削除されます。</br>
     退会する場合は「退会する」をクリックください。</br>
     </p>
     </div>
 
-    <div class="col-xs-12" style="margin-top: 20px">
+    <div class="col-xs-12" style="margin-bottom: 250px">
       <p class="text-center">
       <%= link_to "退会しない",user_path(current_user),class: "btn outline btn-success" %>
       <%= link_to "退会する",user_withdrawal_path(current_user),method: :patch,"data-confirm"=>"本当に退会しますか？",style: "margin:0 20px;" ,class: "btn outline2 btn-danger"%>
