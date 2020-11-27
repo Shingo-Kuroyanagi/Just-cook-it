@@ -9,10 +9,6 @@
   color:#FFCC66;
 }
 
-#back{
-  right: 10px;
-  margin-bottom: 30px;
-}
 
 .index-posts-area{
   width: auto;
@@ -61,9 +57,6 @@
     margin-right: 0px; /* 4つ目の料理のみ右側余白を0pxに */
 }
 
-#calendar{
-  margin-top: 100px;
-}
 
 .rate-box{
   width: 500px;
@@ -83,4 +76,9 @@
   position: fixed;
   right: 80px;
   bottom: 40px;
+}
+
+#calendar{
+  margin-top: 100px;
+  
 }
