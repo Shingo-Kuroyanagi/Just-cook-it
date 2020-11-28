@@ -1,11 +1,9 @@
 <%= render 'layouts/header'%>
 <div class="container">
     <div class="row">
-      
       <% if flash[:notice] %>
         <p class="alert alert-success"><%= flash[:notice] %></p>
       <% end %>
-      
       <div id="post_food_comment_error_<%= @post_food_comment.id %>">
         <%= render 'layouts/errors' ,obj: @post_food_comment %>
       </div> 
@@ -85,7 +83,9 @@
                 <div class ="col-sm-1">
                     <%= link_to "投稿一覧へ",post_foods_path, class: "btn btn-warning "%>
                 </div>
+                <% if @user == current_user%>
                     <%= link_to "編集する",edit_post_food_path(@post_food), class: "btn btn-warning"%>
+                <% end %>    
               </div>
             </div>  
          
