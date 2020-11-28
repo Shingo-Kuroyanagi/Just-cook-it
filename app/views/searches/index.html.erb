@@ -4,21 +4,37 @@
   <% end %>
   <div class="container">
     <div class ="row">
-	  <h3>ユーザー検索&nbsp;一覧結果</h3>
-    	<div class="col-xs-2 col-xs-offset-5">
+     
+	  <h2 class="title">ユーザー検索&nbsp;一覧結果</h2>
+	  <div class="col-xs-5 col-xs-offset-3">
+	    <hr>
+	  </div> 
+    	<div class="col-xs-5 col-xs-offset-3">
       	<!--users一覧 -->
-      			 <div class="show-posts-area">
       				<% @users.each do |user| %>
-          			<div class= users-posts-area>
-          					<p>
-                      <%=link_to user_path(current_user) do%>
-          					    <%= attachment_image_tag user,:image ,format:'jpeg',fallback: "no_image.jpg", size: '150x150'%>
-          					  <% end %>
-          					 </p>
-                    <p>名前:&nbsp;<%= user.name %></p>
-                    <p>年齢:&nbsp;<%= user.age %></p>
-          					<p>性別:&nbsp;<%= user.sex %></p>
-                </div>
+      				<tr>
+          			<table class="table">
+          			  <thead class="thead bg-warning">
+            			    <tr>
+                        <th></th>
+                        <th>名前</th>
+                        <th>年齢</th>
+                        <th>性別</th>
+                      </tr>
+        			    </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <%=link_to user_path(current_user) do%>
+                        <%= attachment_image_tag user,:image ,format:'jpeg',fallback: "no_image.jpg", size: '90x90'%>
+                        <% end %>
+                      </td>
+                      <td><%= user.name %></td>
+                      <td><%= user.age %></td>
+                      <td><%= user.sex %></td>
+                    </tr>
+                  </tbody>
+              </table>
       				<% end %>
       			</div>
     	  </div>
