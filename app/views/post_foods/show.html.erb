@@ -10,7 +10,12 @@
           <div class="show-image-area">
               <div class="img_field">
                   <%= attachment_image_tag @post_food, :image, format: "jpg",fallback: "no_image.jpg",size: '400x400'%>
-              </div> 
+              </div>
+              <div class="tag-box">
+                <% @post_food.tags.each do |tag| %>
+                <span class="label"><%= tag.name %></span>
+                <% end %>
+              </div>
           </div>
       <!--ここから　投稿内容-->
 　     <h2 class="title"><%= @user.name %>さんの投稿</h2>
