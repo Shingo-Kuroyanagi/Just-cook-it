@@ -14,6 +14,10 @@ class PostFoodsController < ApplicationController
     @post_food.user_id = current_user.id
     if @post_food.save
       flash.now[:notice] = '投稿完了しました'
+      tags = Vision.get_image_data(@post_food.image)    
+      tags.each do |tag|
+        @post_food.tags.create(name: tag)
+      end
       redirect_to post_foods_path
     else
       render 'new'
