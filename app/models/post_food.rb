@@ -3,6 +3,7 @@ class PostFood < ApplicationRecord
   belongs_to :user
   has_many  :post_food_comments, dependent: :destroy
   has_many  :post_food_favorites, dependent: :destroy
+  has_many  :tags,dependent: :destroy
 
   validates :image,       presence: true
   validates :name,        presence: true
